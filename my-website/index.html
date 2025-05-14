@@ -1,334 +1,166 @@
-/* General Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background-color: #181818; /* Dark background for a cinematic feel */
-    color: #e0e0e0; /* Light text for contrast */
-    line-height: 1.6;
-}
+<html lang="en">
 
-a {
-    text-decoration: none;
-    color: #bb86fc; /* A vibrant accent color */
-    transition: color 0.3s ease;
-}
+<head>
 
-a:hover {
-    color: #8c52ff;
-}
+  <meta charset="UTF-8" />
 
-h1, h2, h3 {
-    color: #f5f5f5;
-    margin-bottom: 15px;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-/* Navbar */
-.navbar {
-    background-color: #212121;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+  <title>Movie143</title>
 
-.navbar img {
-    max-height: 40px;
-    cursor: pointer;
-}
+  <link rel="stylesheet" href="css/home.css">
 
-.nav-links {
-    display: flex;
-    align-items: center;
-}
+  <link rel="preload" href="css/home.css" as="style">
 
-.nav-links a {
-    margin-left: 20px;
-    font-weight: bold;
-}
+  <link rel="preload" href="js/home.js" as="script">
 
-.search-bar {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: #333;
-    color: #e0e0e0;
-    margin-left: 20px;
-    width: 200px;
-    transition: width 0.3s ease;
-}
+  <link rel="manifest" href="manifest.json">
 
-.search-bar:focus {
-    outline: none;
-    width: 250px;
-    background-color: #444;
-}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-/* Banner */
-.banner {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('Images/banner-placeholder.jpg'); /* Replace with your banner image */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-}
+  <script defer src="js/home.js"></script>
 
-#banner-title {
-    font-size: 3em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
+</head>
 
-/* Rows (Trending Sections) */
-.row {
-    padding: 20px;
-    margin-bottom: 30px;
-}
 
-.row h2 {
-    margin-top: 0;
-    border-bottom: 2px solid #bb86fc;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
 
-.list {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 15px;
-}
+<body>
 
-.list::-webkit-scrollbar {
-    height: 8px;
-    background-color: #333;
-}
+  <div class="navbar">
 
-.list::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 4px;
-}
+    <a href="">
+  <img src="Images/logo.png" alt="Logo.png" style="cursor: pointer;">
+</a>
+    <div class="nav-links">
 
-.list::-webkit-scrollbar-thumb:hover {
-    background-color: #777;
-}
+      <a href="index.html">Home</a>
 
-/* Example Movie/Show Item (You'll likely generate these dynamically with JS) */
-.movie-item {
-    background-color: #212121;
-    border-radius: 8px;
-    margin-right: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    min-width: 180px; /* Adjust as needed */
-}
+<input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
 
-.movie-item:hover {
-    transform: scale(1.05);
-}
+    </div>
 
-.movie-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+  </div>
 
-.movie-item h3 {
-    font-size: 1em;
-    margin: 10px;
-    text-align: center;
-}
 
-/* Modal */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
-}
 
-.modal-content {
-    background-color: #2a2a2a;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    border-radius: 8px;
-    position: relative;
-}
+  <div class="banner" id="banner">
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+    <h1 id="banner-title"></h1>
 
-.close:hover,
-.close:focus {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-}
+  </div>
 
-.modal-body {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
 
-#modal-image {
-    max-width: 200px;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
 
-.modal-text {
-    flex-grow: 1;
-}
+  <div class="row">
 
-.modal-text h2 {
-    margin-top: 0;
-}
+    <h2>Trending Movies</h2>
 
-.stars {
-    color: gold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
+    <div class="list" id="movies-list"></div>
 
-.server-selector {
-    margin-bottom: 20px;
-    text-align: center;
-}
+  </div>
 
-.server-selector label {
-    color: #e0e0e0;
-    margin-right: 10px;
-}
 
-.server-selector select {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: #e0e0e0;
-}
 
-#modal-video {
-    border-radius: 8px;
-}
+  <div class="row">
 
-/* Search Modal */
-.search-modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
-    padding-top: 60px;
-}
+    <h2>Trending TV Shows</h2>
 
-.search-modal .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #f1f1f1;
-    cursor: pointer;
-}
+    <div class="list" id="tvshows-list"></div>
 
-.search-modal .close:hover,
-.search-modal .close:focus {
-    color: #bbb;
-}
+  </div>
 
-#search-input {
-    padding: 15px;
-    border: none;
-    border-radius: 25px;
-    width: 80%;
-    display: block;
-    margin: 20px auto;
-    background-color: #333;
-    color: #e0e0e0;
-    font-size: 1em;
-}
 
-#search-input:focus {
-    outline: none;
-    background-color: #444;
-}
 
-.results {
-    color: #e0e0e0;
-    padding: 20px;
-}
+  <div class="row">
 
-.results ul {
-    list-style: none;
-    padding: 0;
-}
+    <h2>Trending Anime</h2>
 
-.results li {
-    padding: 10px 0;
-    border-bottom: 1px solid #444;
-}
+    <div class="list" id="anime-list"></div>
 
-.results li:last-child {
-    border-bottom: none;
-}
+  </div>
 
-.results li a {
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
 
-.results li a:hover {
-    background-color: #333;
-}
 
-/* Footer */
-.footer {
-    background-color: #212121;
-    color: #777;
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid #333;
-}
+  <div class="modal" id="modal">
 
-.footer-content {
-    max-width: 960px;
-    margin: 0 auto;
-}
+    <div class="modal-content">
 
-.footer-links {
-    margin-top: 10px;
-}
+      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
 
-.footer-links a {
-    color: #777;
-    margin: 0 10px;
-}
+      <div class="modal-body">
 
-.footer-links a:hover {
-    color: #e0e0e0;
-}
+  <img id="modal-image" src="" alt="" />
+
+  <div class="modal-text">
+
+    <h2 id="modal-title"></h2>
+
+    <div class="stars" id="modal-rating"></div>
+
+    <p id="modal-description"></p>
+
+  </div>
+
+</div>
+
+      
+
+      <div class="server-selector">
+
+        <label for="server">Change Server:</label>
+
+        <select id="server" onchange="changeServer()">
+
+          <option value="vidsrc.cc">Vidsrc.cc</option>
+
+          <option value="vidsrc.me">Vidsrc.me</option>
+
+          <option value="player.videasy.net">Player.Videasy.net</option>
+
+        </select>
+
+      </div>
+
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="search-modal" id="search-modal">
+
+    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+
+    <div class="results" id="search-results"></div>
+
+  </div>
+
+
+
+<footer class="footer">
+
+  <div class="footer-content">
+
+    <p>&copy; 2025 Movie143. All rights reserved.</p>
+
+    <div class="footer-links">
+
+<p style="color: white;">
+  <a>
+    This website's server has no files on it. Only content from third-party websites and services is displayed on this website. We have no control over or endorsement of any of the products, services, or material provided by these websites.
+  </a>
+</p>
+
+  </div>
+
+</footer>
+
+
+
+  
+
+</body>
