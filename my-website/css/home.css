@@ -1,43 +1,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #111; color: #fff; }
 
-    <!DOCTYPE html>
-<html>
-<head>
-  <style>
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      background: #222;
-      color: white;
+.navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px; background: #222;
     }
-
-    .search-bar {
-      margin-right: auto; /* Pushes everything else to the right */
-    }
-
-    .search-bar input {
-      padding: 5px;
-      font-size: 16px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="navbar">
-    <div class="search-bar">
-      <input type="text" placeholder="Search...">
-    </div>
-    <div class="top-right">
-      <p style="font-size: 24px; margin: 0;">&copy;<span style="color: blue;">Melly</span> <span style="color: red;">TV</span>.</p>
-    </div>
-  </div>
-
-</body>
-</html>
-
 
     .navbar img { height: 50px; }
     .nav-links { display: flex; align-items: center; gap: 5px; }
