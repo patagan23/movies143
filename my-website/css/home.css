@@ -43,9 +43,9 @@
 
     .list img {
       width: 200px;
-      margin-right: 20px;
+      margin-right: 50px;
       cursor: pointer;
-      border-radius: 20px;
+      border-radius: 50px;
       transition: transform 0.3s ease, filter 0.3s ease;
     }
 
