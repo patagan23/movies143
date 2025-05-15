@@ -29,11 +29,11 @@
     }
 
     .row {
-      margin: 50px;
+      margin: 50px; text-align: center;
     }
 
-    .row h2 {
-      margin-bottom: 10px;
+    .row h2 { 
+      margin-bottom: 10px; 
     }
 
     .list {
