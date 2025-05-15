@@ -7,7 +7,7 @@
     }
 
     .navbar img { height: 50px; }
-    .nav-links { display: flex; align-items: center; gap: 5px; }
+    .nav-links flex-wrap: nowrap; { display: flex; align-items: center; gap: 5px; }
     .nav-links a { color: white; text-decoration: none; margin: 0 5px; }
 
     .search-bar {
