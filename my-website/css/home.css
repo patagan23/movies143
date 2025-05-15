@@ -193,7 +193,7 @@
     text-align: center;
   }
 
-  .list {
+  .list { scrollbar-width: none; {  .list::-webkit-scrollbar { display: none; }
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
