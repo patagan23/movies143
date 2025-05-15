@@ -35,13 +35,9 @@
       margin-bottom: 10px;
     }
 
-.list {
-  display: flex;
-  overflow-x: auto;
-  list-style: none;     /* Removes bullets/numbers */
-  padding: 0;           /* Removes default padding */
-  margin: 0;            /* Removes default margin */
-}
+    .list {
+      display: flex;
+      overflow-x: auto;
 
     }
 
