@@ -11,8 +11,9 @@
     .nav-links a { color: white; text-decoration: none; margin: 0 5px; }
 
     .search-bar {
-      padding: 5px; border-radius: 5px; border: none;
+      padding: 5px; border-radius: 5px; border: none; width: 150px;
     }
+    .search-bar:focus { width: 200px; }
 
     .banner {
       height: 50vh;
