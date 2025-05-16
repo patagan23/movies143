@@ -42,11 +42,25 @@
     <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
   </div>
 
-  <!-- Trending Sections -->
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
+<div class="row" id="trending-movies">
+  <h2>Trending Movies</h2>
+  <div class="movie-grid">
+    <div class="movie-item" onclick="openModal('images/movie1.jpg', 'Dune: Part Two', 'An epic continuation of the sci-fi saga.', 4.5)">
+      <img src="images/movie1.jpg" alt="Dune: Part Two">
+      <p class="movie-title">Dune: Part Two</p>
+    </div>
+    <div class="movie-item" onclick="openModal('images/movie2.jpg', 'The Batman', 'A gritty take on the Dark Knight.', 4.7)">
+      <img src="images/movie2.jpg" alt="The Batman">
+      <p class="movie-title">The Batman</p>
+    </div>
+    <div class="movie-item" onclick="openModal('images/movie3.jpg', 'Avatar: The Way of Water', 'Return to Pandora in this stunning sequel.', 4.4)">
+      <img src="images/movie3.jpg" alt="Avatar 2">
+      <p class="movie-title">Avatar: The Way of Water</p>
+    </div>
+    <!-- Add more movie items as needed -->
   </div>
+</div>
+
 
   <div class="row">
     <h2>Trending TV Shows</h2>
