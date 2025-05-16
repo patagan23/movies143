@@ -68,17 +68,32 @@
   z-index: 2;
 }
 
+.trending-section {
+    padding: 20px;
+    background-color: #1a202c; /* Dark background */
+    color: #f7fafc; /* Light text */
+    margin-bottom: 20px;
+}
+
+.trending-section h2 {
+    color: #cbd5e0; /* Light grey heading */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 .trending-tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
-    position: sticky; /* Make it sticky */
-    top: 0; /* Stick to the top of its containing element */
-    background-color: #1a202c; /* Ensure the background covers the content below */
-    z-index: 10; /* Ensure it stays above the scrolling content */
-    padding-top: 10px; /* Add some padding above the buttons */
-    padding-bottom: 10px; /* Add some padding below the buttons */
+    margin-bottom: 15px; /* This margin might be pushing it down */
+    position: sticky; /* If you're using sticky positioning */
+    top: 0;       /* For sticky positioning */
+    background-color: #1a202c;
+    z-index: 10;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
+
+/* ... other CSS ... */
 
 
     .modal {
