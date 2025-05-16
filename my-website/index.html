@@ -1,204 +1,397 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Movie143</title>
 
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="preload" href="css/home.css" as="style">
-    <link rel="preload" href="js/home.js" as="script">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="js/home.js"></script>
+    <meta charset="UTF-8" />
 
-    <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var e=window,f="ae5131cfb525d450cc9005c28ca524dc",h=[["siteId",828-873*801*512-916+363227776],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],m=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2pxdWVyeS5zdGlja3l0YWJsZWhlYWRlcnMubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvZ25JL2htZHVpLm1pbi5qcw=="],p=-1,o,x,b=function(){clearTimeout(x);p++;if(m[p]&&!(1773313378000<(new Date).getTime()&&1<p)){o=e.document.createElement("script");o.type="text/javascript";o.async=!0;var a=e.document.getElementsByTagName("script")[0];o.src="https://"+atob(m[p]);o.crossOrigin="anonymous";o.onerror=b;o.onload=function(){clearTimeout(x);e[f.slice(0,16)+f.slice(0,16)]||b()};x=setTimeout(b,5E3);a.parentNode.insertBefore(o,a)}};if(!e[f]){try{Object.freeze(e[f]=h)}catch(e){}b()}})();
-/*]]>/* */
-</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Movie143</title>
 
 
-    
+
+    <link rel="stylesheet" href="css/home.css">
+
+    <link rel="preload" href="css/home.css" as="style">
+
+    <link rel="preload" href="js/home.js" as="script">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script defer src="js/home.js"></script>
+
+
+
+
+
+
+
+
+
 <div class="navbar">
-    <a href="#" class="logo-container">
-        <span class="logo-text">
-            <span style="color: violet;">Movie</span><span style="color: red;">143</span>
-        </span>
-    </a>
-    <div class="search-container">
-        <input type="text" id="search-input" class="search-bar" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#movies-list">Movies</a>
-        <a href="#tvshows-list">TV Shows</a>
-        <a href="#anime-list">Animations</a>
-    </div>
+
+    <a href="#" class="logo-container">
+
+        <span class="logo-text">
+
+            <span style="color: violet;">Movie</span><span style="color: red;">143</span>
+
+        </span>
+
+    </a>
+
+    <div class="search-container">
+
+        <input type="text" id="search-input" class="search-bar" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+
+    <div class="nav-links">
+
+        <a href="#">Home</a>
+
+        <a href="#movies-list">Movies</a>
+
+        <a href="#tvshows-list">TV Shows</a>
+
+        <a href="#anime-list">Animations</a>
+
+    </div>
+
 </div>
+
+
 
 <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <div id="search-header"></div> <div class="results" id="search-results"></div>
+
+    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+
+    <div id="search-header"></div> <div class="results" id="search-results"></div>
+
 </div>
 
-    <div class="banner" id="banner">
-        <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
-    </div>
 
-    <div class="trending-section">
-        <h2>Trending</h2>
-        <div class="trending-tabs">
-            <button class="tab active" onclick="showTrending('movies')">Movies</button>
-            <button class="tab" onclick="showTrending('series')">Series</button>
-        </div>
-        <div id="trending-movies" class="trending-content active">
-            <div class="row">
-                <div class="list" id="movies-list"></div>
-            </div>
-        </div>
-        <div id="trending-series" class="trending-content">
-            <div class="row">
-                <div class="list" id="tvshows-list"></div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <h2>Trending Anime</h2>
-        <div class="list" id="anime-list"></div>
-    </div>
+    <div class="banner" id="banner">
 
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-            <div class="modal-body">
-                <img id="modal-image" src="" alt="">
-                <div class="modal-text">
-                    <h2 id="modal-title"></h2>
-                    <div class="stars" id="modal-rating"></div>
-                    <p id="modal-description"></p>
-                </div>
-            </div>
-            <div class="server-selector">
-                <label for="server">Change Server:</label>
-                <select id="server" onchange="changeServer()">
-                    <option value="vidsrc.cc">Vidsrc.cc</option>
-                    <option value="vidsrc.me">Vidsrc.me</option>
-                    <option value="player.videasy.net">Player.Videasy.net</option>
-                </select>
-            </div>
-            <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
+        <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
+
+    </div>
+
+
+
+    <div class="trending-section">
+
+        <h2>Trending</h2>
+
+        <div class="trending-tabs">
+
+            <button class="tab active" onclick="showTrending('movies')">Movies</button>
+
+            <button class="tab" onclick="showTrending('series')">Series</button>
+
+        </div>
+
+        <div id="trending-movies" class="trending-content active">
+
+            <div class="row">
+
+                <div class="list" id="movies-list"></div>
+
+            </div>
+
+        </div>
+
+        <div id="trending-series" class="trending-content">
+
+            <div class="row">
+
+                <div class="list" id="tvshows-list"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <h2>Trending Anime</h2>
+
+        <div class="list" id="anime-list"></div>
+
+    </div>
+
+
+
+    <div class="modal" id="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+
+            <div class="modal-body">
+
+                <img id="modal-image" src="" alt="">
+
+                <div class="modal-text">
+
+                    <h2 id="modal-title"></h2>
+
+                    <div class="stars" id="modal-rating"></div>
+
+                    <p id="modal-description"></p>
+
+                </div>
+
+            </div>
+
+            <div class="server-selector">
+
+                <label for="server">Change Server:</label>
+
+                <select id="server" onchange="changeServer()">
+
+                    <option value="vidsrc.cc">Vidsrc.cc</option>
+
+                    <option value="vidsrc.me">Vidsrc.me</option>
+
+                    <option value="player.videasy.net">Player.Videasy.net</option>
+
+                </select>
+
+            </div>
+
+            <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+
+        </div>
+
+    </div>
+
+
 
 <footer class="footer">
-    <div class="footer-content">
-        <h2 style="color: #007bff; text-align: center; margin-bottom: 10px;">Disclaimer :</h2>
-        <p style="color: #ccc; text-align: center; margin-bottom: 15px;">
-            This website's server has no files on it. Only content from third-party websites and services is displayed on this website. We
-            have no control over or endorsement of any of the products, services, or material provided by these websites.
-        </p>
-        <div class="footer-links" style="text-align: center;">
-            <p>&copy; 2025 Movie143. All rights reserved.</p>
-        </div>
-    </div>
+
+    <div class="footer-content">
+
+        <h2 style="color: #007bff; text-align: center; margin-bottom: 10px;">Disclaimer :</h2>
+
+        <p style="color: #ccc; text-align: center; margin-bottom: 15px;">
+
+            This website's server has no files on it. Only content from third-party websites and services is displayed on this website. We
+
+            have no control over or endorsement of any of the products, services, or material provided by these websites.
+
+        </p>
+
+        <div class="footer-links" style="text-align: center;">
+
+            <p>&copy; 2025 Movie143. All rights reserved.</p>
+
+        </div>
+
+    </div>
+
 </footer>
 
+
+
 <style>
+
 .trending-section {
-    padding: 20px;
-    background-color: #1a202c; /* Dark background */
-    color: #f7fafc; /* Light text */
-    margin-bottom: 20px;
+
+    padding: 20px;
+
+    background-color: #1a202c; /* Dark background */
+
+    color: #f7fafc; /* Light text */
+
+    margin-bottom: 20px;
+
 }
+
+
 
 .trending-section h2 {
-    color: #cbd5e0; /* Light grey heading */
-    margin-bottom: 15px;
+
+    color: #cbd5e0; /* Light grey heading */
+
+    margin-bottom: 15px;
+
 }
+
+
 
 .trending-tabs {
-    display: flex;
-    margin-bottom: 15px;
+
+    display: flex;
+
+    margin-bottom: 15px;
+
 }
+
+
 
 .trending-tabs button {
-    background-color: #2d3748; /* Darker button background */
-    color: #edf2f7; /* Light button text */
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-right: 10px;
-    border-radius: 5px 5px 0 0;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+
+    background-color: #2d3748; /* Darker button background */
+
+    color: #edf2f7; /* Light button text */
+
+    border: none;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    border-radius: 5px 5px 0 0;
+
+    font-weight: bold;
+
+    transition: background-color 0.3s ease;
+
 }
+
+
 
 .trending-tabs button.active {
-    background-color: #4a5568; /* Even darker active button */
-    color: #fff;
+
+    background-color: #4a5568; /* Even darker active button */
+
+    color: #fff;
+
 }
+
+
 
 .trending-tabs button:hover {
-    background-color: #4a5568;
+
+    background-color: #4a5568;
+
 }
+
+
 
 .trending-content {
-    display: none;
+
+    display: none;
+
 }
+
+
 
 .trending-content.active {
-    display: block;
+
+    display: block;
+
 }
+
+
 
 .row {
-    margin-bottom: 20px;
+
+    margin-bottom: 20px;
+
 }
+
+
 
 .row h2 {
-    color: #cbd5e0;
-    margin-bottom: 10px;
+
+    color: #cbd5e0;
+
+    margin-bottom: 10px;
+
 }
+
+
 
 .list {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 15px;
+
+    display: flex;
+
+    overflow-x: auto;
+
+    padding-bottom: 15px;
+
 }
+
+
 
 .list img {
-    width: 200px;
-    height: auto;
-    margin-right: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+
+    width: 200px;
+
+    height: auto;
+
+    margin-right: 10px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease-in-out;
+
 }
+
+
 
 .list img:hover {
-    transform: scale(1.05);
+
+    transform: scale(1.05);
+
 }
+
 </style>
 
-<script>
-function showTrending(type) {
-    const movieSection = document.getElementById('trending-movies');
-    const seriesSection = document.getElementById('trending-series');
-    const movieTab = document.querySelector('.trending-tabs button:nth-child(1)');
-    const seriesTab = document.querySelector('.trending-tabs button:nth-child(2)');
 
-    if (type === 'movies') {
-        movieSection.classList.add('active');
-        seriesSection.classList.remove('active');
-        movieTab.classList.add('active');
-        seriesTab.classList.remove('active');
-    } else if (type === 'series') {
-        seriesSection.classList.add('active');
-        movieSection.classList.remove('active');
-        seriesTab.classList.add('active');
-        movieTab.classList.remove('active');
-    }
+
+<script>
+
+function showTrending(type) {
+
+    const movieSection = document.getElementById('trending-movies');
+
+    const seriesSection = document.getElementById('trending-series');
+
+    const movieTab = document.querySelector('.trending-tabs button:nth-child(1)');
+
+    const seriesTab = document.querySelector('.trending-tabs button:nth-child(2)');
+
+
+
+    if (type === 'movies') {
+
+        movieSection.classList.add('active');
+
+        seriesSection.classList.remove('active');
+
+        movieTab.classList.add('active');
+
+        seriesTab.classList.remove('active');
+
+    } else if (type === 'series') {
+
+        seriesSection.classList.add('active');
+
+        movieSection.classList.remove('active');
+
+        seriesTab.classList.add('active');
+
+        movieTab.classList.remove('active');
+
+    }
+
 }
+
 </script>
 
+
+
 </body>
+
 </html>
