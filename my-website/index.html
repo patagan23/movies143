@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -22,82 +22,76 @@
 
 <body>
 
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-        <div class="modal-body">
-            <img id="modal-image" src="" alt="">
-            <div class="modal-text">
-                <h2 id="modal-title"></h2>
-                <div class="stars" id="modal-rating"></div>
-                <p id="modal-description"></p>
-            </div>
-            <div class="video-container"> <iframe id="modal-video" width="100%" height="auto" frameborder="0" allowfullscreen></iframe>
+    <div class="navbar">
+        <a href="#">
+            <img src="Images/logo.png" alt="Logo" style="cursor: pointer;">
+        </a>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#movies-list">Movies</a>
+            <a href="#tvshows-list">TV Shows</a>
+            <a href="#anime-list">Animations</a>
+            <input type="text" class="search-bar" placeholder="Search..." oninput="searchTMDB()" />
+        </div>
+    </div>
+
+    <div class="banner" id="banner">
+        <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
+    </div>
+
+    <div class="trending-section">
+        <h2>Trending</h2>
+        <div class="trending-tabs">
+            <button class="tab active" onclick="showTrending('movies')">Movies</button>
+            <button class="tab" onclick="showTrending('series')">Series</button>
+        </div>
+        <div id="trending-movies" class="trending-content active">
+            <div class="row">
+                <div class="list" id="movies-list"></div>
             </div>
         </div>
-        <div class="server-selector">
-            <label for="server">Change Server:</label>
-            <select id="server" onchange="changeServer()">
-                <option value="vidsrc.cc">Vidsrc.cc</option>
-                <option value="vidsrc.me">Vidsrc.me</option>
-                <option value="player.videasy.net">Player.Videasy.net</option>
+        <div id="trending-series" class="trending-content">
+            <div class="row">
+                <div class="list" id="tvshows-list"></div>
             </div>
         </div>
     </div>
-</div>
 
-    <script>
-        function changeVideoSource() {
-            const server = document.getElementById('server').value;
-            const videoFrame = document.getElementById('main-video');
-            // Implement logic here to construct the correct video URL based on the server
-            let newVideoUrl = '';
-            if (server === 'vidsrc.cc') {
-                newVideoUrl = 'URL_FOR_VIDSRC_CC';
-            } else if (server === 'vidsrc.me') {
-                newVideoUrl = 'URL_FOR_VIDSRC_ME';
-            } else if (server === 'player.videasy.net') {
-                newVideoUrl = 'URL_FOR_PLAYER_VIDEASY_NET';
-            }
-            videoFrame.src = newVideoUrl;
-        }
+    <div class="row">
+        <h2>Trending Anime</h2>
+        <div class="list" id="anime-list"></div>
+    </div>
 
-        // You'll need JavaScript logic to:
-        // 1. Get the correct video URL based on the movie clicked on the main page.
-        // 2. Potentially pass this URL to this page (e.g., via URL parameters).
-        // 3. Set the initial src of the iframe.
-    </script>
-</body>
-</html>
-    
-<div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-</div>
-
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-        <div class="modal-body">
-            <img id="modal-image" src="" alt="">
-            <div class="modal-text">
-                <h2 id="modal-title"></h2>
-                <div class="stars" id="modal-rating"></div>
-                <p id="modal-description"></p>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="">
+                <div class="modal-text">
+                    <h2 id="modal-title"></h2>
+                    <div class="stars" id="modal-rating"></div>
+                    <p id="modal-description"></p>
+                </div>
             </div>
-            <div class="video-container"> <iframe id="modal-video" width="100%" height="auto" frameborder="0" allowfullscreen></iframe>
+            <div class="server-selector">
+                <label for="server">Change Server:</label>
+                <select id="server" onchange="changeServer()">
+                    <option value="vidsrc.cc">Vidsrc.cc</option>
+                    <option value="vidsrc.me">Vidsrc.me</option>
+                    <option value="player.videasy.net">Player.Videasy.net</option>
+                </select>
             </div>
-        </div>
-        <div class="server-selector">
-            <label for="server">Change Server:</label>
-            <select id="server" onchange="changeServer()">
-                <option value="vidsrc.cc">Vidsrc.cc</option>
-                <option value="vidsrc.me">Vidsrc.me</option>
-                <option value="player.videasy.net">Player.Videasy.net</option>
-            </div>
+            <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+
+<div class="search-modal" id="search-modal">
+    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+    <div class="results" id="search-results"></div>
 </div>
+
 
 <footer class="footer">
     <div class="footer-content">
