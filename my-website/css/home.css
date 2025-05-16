@@ -10,10 +10,19 @@
     .nav-links flex-wrap: nowrap; { display: flex; align-items: center; gap: 5px; }
     .nav-links a { color: white; text-decoration: none; margin: 0 5px; }
 
-    .search-bar {
-      padding: 5px; border-radius: 5px; border: none; width: 150px; transition: width 0.3s ease;
-    }
-    .search-bar:focus { width: 200px; }
+.search-bar {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease;
+  width: 200px;
+}
+
+.search-bar:focus {
+  border-color: #ff3838;
+}
 
     .banner {
       height: 50vh;
