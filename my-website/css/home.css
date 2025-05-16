@@ -406,3 +406,14 @@
         max-width: 80px;
     }
 }
+
+
+.logo-text {
+    font-size: 1.5em; /* Adjust the size as needed */
+    cursor: pointer; /* Maintain the pointer cursor */
+    font-family: "Arial Black", sans-serif; /* Try Arial Black first */
+    /* If Arial Black doesn't look quite right, try Helvetica Neue Bold */
+    /* font-family: "Helvetica Neue Bold", sans-serif; */
+    font-weight: bold; /* Ensure it's bold */
+    /* Add any other desired styling */
+}
