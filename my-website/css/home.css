@@ -2,13 +2,90 @@
     body { font-family: Arial, sans-serif; background: #111; color: #fff; }
 
 .navbar {
-      display: flex; space-between; align-items: center;
-      padding: 10px; background: #222;
+    background-color: #181818; /* Dark background color */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left initially */
+    gap: 20px; /* Space between logo, search, links */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container .logo-text {
+    font-size: 1.8em; /* Adjust size as needed */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-bar {
+    padding: 8px 15px;
+    border-radius: 5px; /* Less rounded */
+    border: 1px solid #333; /* Darker border */
+    background-color: #222; /* Darker background */
+    color: #e0e0e0; /* Light text color */
+    font-size: 1em;
+    outline: none;
+    transition: border 0.3s ease;
+    width: 250px; /* Adjust width as needed */
+}
+
+.search-bar:focus {
+    border-color: #ff3838; /* Highlight on focus */
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px; /* Adjust spacing between links */
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-left: auto; /* Push links to the right */
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff3838; /* Highlight on hover */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
-    .navbar img { height: 50px; }
-    .nav-links flex-wrap: nowrap; { display: flex; align-items: center; gap: 5px; }
-    .nav-links a { color: white; text-decoration: none; margin: 0 5px; }
+    .search-bar {
+        width: 90%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0; /* Reset margin */
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #333;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}
 
 .search-bar {
   padding: 8px 15px;
