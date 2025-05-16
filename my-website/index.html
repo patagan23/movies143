@@ -124,7 +124,179 @@
 // The HTML structure for the search input and button is updated here
 </script>
 
- <div class="banner" id="banner">
+ <div class="live-banner match-of-the-day-banner" id="live-banner">
+    <div class="banner-content">
+        <div class="banner-info">
+            <h2 class="banner-title">Match of the Day</h2>
+            <div class="banner-meta">
+                <span class="rating">WEB: 4.6/5</span>
+                <span class="year">1964</span>
+                <span class="genre">TV Show</span>
+            </div>
+            <p class="banner-description">BBC's football highlights and analysis. The longest-running football television programme in the world' as recognised by Guinness World Records in 2015.</p>
+            <a href="#" class="watch-now-button">
+                <i class="fas fa-play-circle"></i> Watch Now
+            </a>
+        </div>
+        <div class="banner-background">
+            <div class="banner-overlay"></div>
+            <img src="path/to/your/motd-banner.jpg" alt="Match of the Day Banner">
+        </div>
+    </div>
+</div>
+
+<style>
+.live-banner.match-of-the-day-banner {
+    background-color: #000; /* Dark background */
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    /* Add a subtle gradient or pattern if the background isn't a solid image */
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.8)); */
+}
+
+.match-of-the-day-banner .banner-content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.match-of-the-day-banner .banner-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.match-of-the-day-banner .banner-title {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.match-of-the-day-banner .banner-meta {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+.match-of-the-day-banner .banner-description {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #ddd;
+}
+
+.match-of-the-day-banner .watch-now-button {
+    background-color: #e50914; /* Netflix red-like color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.match-of-the-day-banner .watch-now-button:hover {
+    background-color: #c8080e;
+}
+
+.match-of-the-day-banner .banner-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.match-of-the-day-banner .banner-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6; /* Adjust for desired darkness of the background */
+}
+
+.match-of-the-day-banner .banner-background .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .match-of-the-day-banner .banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .match-of-the-day-banner .banner-info {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    .match-of-the-day-banner .banner-title {
+        font-size: 1.8em;
+    }
+    .match-of-the-day-banner .banner-description {
+        font-size: 0.9em;
+    }
+    .match-of-the-day-banner .banner-background img {
+        opacity: 0.4;
+    }
+}
+</style>
+
+<script>
+function updateLiveBanner(title, rating, year, genre, description, imageUrl, videoUrl) {
+    const banner = document.querySelector('.match-of-the-day-banner');
+    const bannerTitle = banner.querySelector('.banner-title');
+    const bannerMeta = banner.querySelector('.banner-meta');
+    const ratingSpan = bannerMeta.querySelector('.rating');
+    const yearSpan = bannerMeta.querySelector('.year');
+    const genreSpan = bannerMeta.querySelector('.genre');
+    const bannerDescription = banner.querySelector('.banner-description');
+    const bannerBackgroundImg = banner.querySelector('.banner-background img');
+    const watchNowButton = banner.querySelector('.watch-now-button');
+
+    bannerTitle.textContent = title;
+    ratingSpan.textContent = rating;
+    yearSpan.textContent = year;
+    genreSpan.textContent = genre;
+    bannerDescription.textContent = description;
+    bannerBackgroundImg.src = imageUrl;
+    watchNowButton.href = videoUrl;
+}
+
+// Example usage with data from the image:
+const liveVideoData = {
+    title: "Match of the Day",
+    rating: "WEB: 4.6/5", // Assuming a web rating
+    year: "1964",
+    genre: "TV Show",
+    description: "BBC's football highlights and analysis. The longest-running football television programme in the world' as recognised by Guinness World Records in 2015.",
+    imageUrl: "path/to/your/motd-banner.jpg", // Replace with the actual image URL
+    videoUrl: "#" // Replace with the actual video URL
+};
+
+// Call the function to update the banner
+updateLiveBanner(
+    liveVideoData.title,
+    liveVideoData.rating,
+    liveVideoData.year,
+    liveVideoData.genre,
+    liveVideoData.description,
+    liveVideoData.imageUrl,
+    liveVideoData.videoUrl
+);
+</script>
 
         <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
 
