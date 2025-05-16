@@ -172,7 +172,7 @@
     }
 
 /* MOBILE DISPLAY START */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     .navbar {
         flex-direction: column; /* Stack logo and nav vertically */
         align-items: center; /* Center items horizontally */
