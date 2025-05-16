@@ -339,3 +339,70 @@
     gap: 8px;
   }
 }
+
+.popular-list {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Create responsive columns */
+    gap: 10px; /* Spacing between images */
+    padding: 10px;
+    overflow: hidden; /* Prevent scrollbar if items wrap */
+}
+
+.popular-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popular-item a {
+    text-decoration: none;
+    display: block; /* Make the entire link clickable */
+    width: 100%; /* Ensure the link takes the full width of the grid item */
+    height: 100%; /* Ensure the link takes the full height of the grid item */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the image within the link */
+}
+
+.popular-item img {
+    max-width: 100%; /* Ensure image doesn't exceed its container */
+    max-height: 100%; /* Ensure image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover; /* Ensure images fill the container without distortion */
+}
+
+.popular-item img:hover {
+    transform: scale(1.05);
+}
+
+.popular-title {
+    color: #e2e8f0;
+    font-size: 0.8em;
+    margin-top: 5px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px; /* Match the minmax width */
+}
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+    .popular-list {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Smaller columns on mobile */
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .popular-item img {
+        border-radius: 3px;
+    }
+
+    .popular-title {
+        font-size: 0.7em;
+        max-width: 80px;
+    }
+}
