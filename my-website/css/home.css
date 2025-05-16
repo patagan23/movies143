@@ -173,194 +173,64 @@
 
 /* MOBILE DISPLAY START */
 @media (max-width: 500px) {
-    .navbar {
-        flex-direction: column; /* Stack logo and nav vertically */
-        align-items: center; /* Center items horizontally */
-        padding: 10px;
-    }
-
-    .navbar img {
-        height: 40px; /* Adjust logo size */
-        margin-bottom: 10px; /* Add space below logo */
-    }
-
-    .nav-links {
-        flex-direction: column; /* Stack navigation links */
-        width: 100%;
-        gap: 10px;
-        margin-top: 10px;
-        align-items: stretch; /* Make links take full width */
-    }
-
-    .nav-links a {
-        width: 100%;
-        text-align: center;
-        padding: 10px;
-        border-bottom: 1px solid #333; /* Add separators between links */
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none; /* Remove border from the last link */
-    }
-
-    .search-bar {
-        width: 90%; /* Adjust search bar width */
-        margin-top: 15px;
-        padding: 10px;
-        font-size: 1em;
-    }
-
-    .banner {
-        height: auto; /* Adjust banner height based on content */
-        padding: 30px 15px;
-        text-align: center;
-    }
-
-    .banner h1 {
-        font-size: 1.8em; /* Adjust banner title size */
-    }
-
-    .trending-section h2 {
-        font-size: 1.5em; /* Adjust trending heading size */
-        text-align: center; /* Center the trending heading */
-    }
-
-    .trending-tabs {
-        display: flex;
-        justify-content: center; /* Center the tabs */
-        margin-bottom: 15px;
-    }
-
-    .trending-tabs button {
-        padding: 8px 15px; /* Adjust tab button padding */
-        font-size: 0.9em; /* Adjust tab button font size */
-        margin: 0 5px; /* Adjust spacing between tabs */
-    }
-
-    .list {
-        scrollbar-width: none;
-        -ms-overflow-style: none; /* For Internet Explorer and Edge */
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 15px;
-        padding-left: 10px; /* Add some left padding */
-        padding-right: 10px; /* Add some right padding */
-    }
-
-    .list::-webkit-scrollbar {
-        display: none;
-    }
-
-    .list img {
-        width: 150px; /* Adjust image width in the list */
-        height: auto;
-        margin-right: 10px;
-        border-radius: 5px;
-    }
-
-    .row h2 {
-        font-size: 1.3em; /* Adjust row heading size */
-        padding-left: 10px; /* Add some left padding to row heading */
-    }
+    /* ... other mobile styles ... */
 
     .modal-content {
-        width: 90%; /* Make modal wider on mobile */
-        margin: 30% auto; /* Adjust modal vertical position */
-        padding: 15px;
+        width: 100%; /* Make the modal take the full width */
+        height: 100%; /* Make the modal take the full height */
+        margin: 0; /* Remove default margins to fill the screen */
+        border-radius: 0; /* Remove border radius for full screen */
     }
 
     .modal-body {
-        flex-direction: column; /* Stack image and text in modal */
-        align-items: center;
-        gap: 15px;
+        flex-direction: column; /* Stack elements vertically in full-screen modal */
+        align-items: stretch; /* Stretch items to fill width */
+        height: calc(100% - /* Adjust for close button if needed */ 40px); /* Adjust height */
+        overflow: auto; /* Allow scrolling if content overflows */
     }
 
     .modal-body img {
-        width: 80%; /* Make modal image wider */
-        max-width: 300px; /* Set a maximum width for the modal image */
+        max-height: 30%; /* Adjust image height in full-screen mode */
+        width: auto;
     }
 
     .modal-text {
-        text-align: center;
-    }
-
-    .modal-text h2 {
-        font-size: 1.5em; /* Adjust modal title size */
-    }
-
-    .modal-text .stars {
-        font-size: 1em; /* Adjust star rating size */
-    }
-
-    .server-selector {
-        margin-top: 15px;
-        font-size: 0.9em;
-    }
-
-    .server-selector select {
-        padding: 8px;
-        font-size: 0.9em;
+        flex-grow: 1; /* Allow text to take remaining space */
+        overflow-y: auto; /* Scrollable text if it's long */
     }
 
     .modal-video {
-        height: 200px; /* Adjust video iframe height */
+        width: 100%; /* Make video iframe take full width */
+        height: auto; /* Maintain aspect ratio */
+        flex-grow: 2; /* Allow video to take more space */
     }
 
-    .search-modal input {
-        margin-top: 30px; /* Adjust search modal input margin */
-        padding: 10px;
-        font-size: 1em;
-    }
-
-    .search-modal .results {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust search results grid */
-        gap: 8px;
-        padding: 10px;
-        max-height: 300px; /* Adjust max height for search results */
-        overflow-y: auto; /* Enable vertical scrolling for search results */
-        justify-content: center; /* Center search results */
-    }
-
-    .search-modal .close {
-        font-size: 28px;
+    .close {
         top: 15px;
         right: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .banner h1 {
-        font-size: 1.5em; /* Further adjust banner title for smaller screens */
+        font-size: 30px;
+        color: white; /* Ensure close button is visible on dark background */
+        z-index: 20; /* Ensure close button is above the modal content */
     }
 
-    .trending-section h2 {
-        font-size: 1.3em; /* Further adjust trending heading */
+    .server-selector {
+        position: absolute; /* Position server selector at the bottom */
+        bottom: 10px;
+        left: 10px;
+        z-index: 20;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
     }
 
-    .list img {
-        width: 120px; /* Further adjust image width for very small screens */
+    .server-selector label,
+    .server-selector select {
+        color: white;
     }
-
-    .row h2 {
-        font-size: 1.1em; /* Further adjust row heading */
-    }
-
-    .modal-content {
-        margin: 20% auto; /* Further adjust modal vertical position */
-    }
-
-    .modal-body img {
-        width: 90%; /* Make modal image even wider on very small screens */
-    }
-
-    .search-modal input {
-        margin-top: 20px; /* Further adjust search modal input margin */
-    }
-
-    .search-modal .results {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust search results grid for very small screens */
+    .server-selector select {
+        background: #333;
+        border: none;
     }
 }
 /* MOBILE DISPLAY END */
