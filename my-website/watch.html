@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="hUpOrZMJQV4YDn3m-7qMFvn5OA8yU5vkZm6ip9VJLpI">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Stream Movies & TV Series Anytime, Anywhere - Movie143</title>
+    <meta name="description" content="Enjoy unlimited access to the latest movies and TV shows on Movie143. With a simple, fast, and hassle-free streaming experience, you can watch all your favorite films in high-quality without any sign-ups. Start streaming today and never miss out on the best entertainment!">
+    <meta name="keywords" content="alchemy of souls imdb, watch movies tv series online free, where can i watch movies and tv series for free, watch movies and tv series hd online free, watch movies and tv series online free, websites to watch tv series and movies for free, where can i watch movie for free online, watch movies and series for free reddit, soap2day watch movies and series in high quality, watch movies and series online free streaming">
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preload" href="css/home.css" as="style">
+    <link rel="preload" href="js/home.js" as="script">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon.png" sizes="16x16" type="image/png">
+
+    <style>
+        /* Basic body and page structure */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif; /* Use Poppins font */
+            background-color: #1a202c; /* Dark background */
+            color: #f7fafc; /* Light text */
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrapper {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header/Navbar styles (keeping your existing styles for the navbar) */
+        header {
+             background-color: #000; /* Black background */
+             color: #fff; /* White text */
+             padding: 15px 20px;
+             display: flex;
+             align-items: center;
+             justify-content: space-between; /* Space out logo, search, and links */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo img {
+            height: 40px; /* Adjust logo height as needed */
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-search-input {
+            padding: 8px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            margin-right: 0;
+            width: 200px; /* Adjust width as needed */
+            color: #333;
+        }
+
+        .custom-search-btn {
+            background-color: #dc3545; /* Red search button */
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            margin-left: 0;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px; /* Spacing between links */
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            background-color: #333;
+        }
+
+         /* Adjust colors for Movie143 logo */
+        .logo-text span:first-child {
+            color: violet;
+        }
+
+        .logo-text span:last-child {
+            color: red;
+        }
+
+
+        /* Main content area layout */
+        .container {
+            display: flex;
+            padding: 20px;
+            gap: 20px; /* Space between main content and sidebar */
+            max-width: 1400px; /* Max width for the main content area */
+            margin: 0 auto; /* Center the container */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        #main-content {
+            flex: 3; /* Take up more space */
+            min-width: 0; /* Allow shrinking */
+        }
+
+        #main-sidebar {
+            flex: 1; /* Take up less space */
+            min-width: 250px; /* Minimum width for sidebar */
+        }
+
+        /* Video Player and Details Section */
+        .video-player-section {
+            background-color: #1a202c; /* Dark background */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px; /* Space below the video section */
+        }
+
+        .video-player-section iframe {
+            display: block;
+            margin-bottom: 15px; /* Space below iframe */
+            border-radius: 8px;
+            width: 100%; /* Make iframe responsive */
+            height: 500px; /* Adjust height as needed */
+        }
+
+         .warning-message {
+             background-color: #ffc107; /* Yellow background */
+             color: #333; /* Dark text */
+             padding: 10px;
+             border-radius: 5px;
+             margin-bottom: 15px;
+             font-weight: bold;
+             font-size: 0.9em;
+         }
+
+        .video-options-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap; /* Allow wrapping */
+            gap: 10px; /* Space between items when wrapped */
+        }
+
+        .server-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+         .server-selector label {
+             font-weight: bold;
+             color: #cbd5e0;
+         }
+
+        .server-selector select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #4a5568;
+            background-color: #2d3748;
+            color: #edf2f7;
+            cursor: pointer;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            background-color: #dc3545; /* Red button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .action-buttons button:hover {
+            background-color: #c82333;
+        }
+
+
+        .video-details-section {
+            display: flex;
+            gap: 20px; /* Space between poster and details */
+            margin-top: 20px;
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+
+        .video-poster {
+            flex-shrink: 0; /* Prevent shrinking */
+            width: 200px; /* Fixed width for poster */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-poster img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .video-info {
+            flex: 1; /* Take up remaining space */
+        }
+
+        .video-info h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .video-meta {
+            font-size: 0.9em;
+            color: #ccc;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px; /* Space between meta items */
+            flex-wrap: wrap;
+        }
+
+        .video-description {
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+
+        /* Sidebar Styles */
+        .sideBar-header {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+            border-bottom: 2px solid #dc3545; /* Red underline */
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sideBar-header .cont {
+            font-size: 0.9em;
+            font-weight: normal;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sideBar-header .cont.actived {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .sideBar-header .cont:hover {
+            color: #fff;
+        }
+
+
+        #sideBar-content .sel {
+             display: none; /* Hide sidebar content by default */
+        }
+
+        #sideBar-content .sel.selected {
+            display: block; /* Show selected sidebar content */
+        }
+
+        #sideBar-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sideBar-content li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #2d3748; /* Separator line */
+        }
+
+        #sideBar-content li a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            gap: 10px;
+        }
+
+        #sideBar-content li img {
+            width: 50px; /* Size of sidebar poster */
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .sidebar-item-details {
+            flex: 1;
+        }
+
+        .sidebar-item-details h4 {
+            font-size: 1em;
+            margin-bottom: 5px;
+            color: #cbd5e0;
+        }
+
+        .sidebar-item-details p {
+            font-size: 0.8em;
+            color: #a0aec0;
+            margin-bottom: 3px;
+        }
+
+        .sidebar-item-details .stars i {
+             color: #ffc107; /* Gold color for stars */
+             font-size: 0.7em;
+             margin-right: 1px;
+        }
+
+
+        /* Footer styles (keeping your existing styles) */
+        .footer {
+            flex-shrink: 0;
+            background: #1e1e1e;
+            color: #eee;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-disclaimer h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .footer-disclaimer p {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .footer-copyright p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            #main-content, #main-sidebar {
+                flex: none;
+                width: 100%;
+            }
+
+            .video-details-section {
+                 flex-direction: column;
+                 align-items: center;
+            }
+
+             .video-poster {
+                 width: 150px; /* Smaller poster on mobile */
+             }
+
+             .video-info {
+                 text-align: center;
+             }
+
+             .video-meta {
+                 justify-content: center;
+             }
+
+             .video-options-row {
+                 flex-direction: column;
+                 align-items: stretch;
+             }
+
+             .server-selector {
+                 width: 100%;
+                 justify-content: space-between;
+             }
+
+             .action-buttons {
+                 flex-direction: column;
+             }
+
+             .action-buttons button {
+                 width: 100%;
+                 justify-content: center;
+             }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="logo">
+                <a href='/'><img src="logo.png" alt="Logo" id="logo"></a>
+                <span class="logo-text">
+                    <span style="color: violet;">Movie</span><span style="color: red;">143</span>
+                </span>
+            </div>
+            <div class="header-row">
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-container">
+                    <input type="text" placeholder="Search Movies" class="custom-search-input" id="customSearchInput">
+                    <button class="custom-search-btn" id="customSearchBtn"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <div class="navbar-links" id="navbar-links">
+                <a href='/'>Home</a>
+                <a href='/movies'>Movies</a>
+                <a href='/series'>TV Shows</a>
+                <a href='/animations'>Animations</a>
+            </div>
+            <div class="spacer"></div>
+            <div class="navbar-links" id="rightNav"></div>
+        </header>
+
+        <main class="container">
+            <div id="main-content">
+                <div class="video-player-section">
+                     <div class="warning-message">
+                         If you get any error message when trying to stream, please Refresh the page or switch to another streaming server.
+                     </div>
+                    <iframe id="video-iframe" width="100%" height="500" src="" frameborder="0" allowfullscreen></iframe>
+
+                    <div class="video-options-row">
+                         <div class="server-selector">
+                             <label for="server">Select Server</label>
+                             <select id="server">
+                                 <option value="server1">Server 1</option>
+                                 <option value="server2">Server 2</option>
+                                 </select>
+                         </div>
+                         <div class="action-buttons">
+                             <button><i class="fas fa-play-circle"></i> WATCH NOW</button>
+                             <button><i class="fas fa-download"></i> DOWNLOAD HERE</button>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="video-details-section">
+                    <div class="video-poster">
+                        <img id="video-poster" src="" alt="Movie/Series Poster">
+                    </div>
+                    <div class="video-info">
+                        <h2 id="video-title">Loading Title...</h2>
+                        <div class="video-meta">
+                            <span id="video-rating">Rating: Loading...</span>
+                            <span id="video-release-date">Release: Loading...</span>
+                            <span id="video-duration">Duration: Loading...</span>
+                            <span id="video-country">Country: Loading...</span>
+                            <span id="video-genre">Genre: Loading...</span>
+                        </div>
+                        <p id="video-description">Loading description...</p>
+                        </div>
+                </div>
+            </div>
+
+            <div id="main-sidebar">
+                <section>
+                    <div class="sideBar-header">
+                        Top
+                        <span id="TopMovies" class="cont actived">Movies</span>
+                        <span id="TopSeries" class="cont">Series</span>
+                    </div>
+                    <div id="sideBar-content">
+                        <div id="topMov" class="sel selected">
+                            <ul id="top-movies-list">
+                                </ul>
+                        </div>
+                        <div id="topSer" class="sel">
+                            <ul id="top-series-list">
+                                </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-disclaimer">
+                <h4>Disclaimer:</h4>
+                <p>This website's server has no files on it. Only content from third-party websites and services is displayed on this website. We have no control over or endorsement of any of the products, services, or material provided by these websites.</p>
+            </div>
+            <div class="footer-copyright">
+                <p>© Movie143</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/home.js"></script>
+    <script src="js/watch.js"></script>
+    <script src="js/interface.js"></script>
+
+
+    <script type="text/javascript">
+        var uid = '286765';
+        var wid = '738951';
+        var pop_tag = document.createElement('script');pop_tag.src='//cdn.popcash.net/show.js';document.body.appendChild(pop_tag);
+        pop_tag.onerror = function() {pop_tag = document.createElement('script');pop_tag.src='//cdn2.popcash.net/show.js';document.body.appendChild(pop_tag)};
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navbarLinks = document.getElementById('navbar-links');
+            if (hamburgerMenu && navbarLinks) {
+                hamburgerMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navbarLinks.classList.toggle('active');
+                    hamburgerMenu.classList.toggle('active');
+                });
+                document.addEventListener('click', function(event) {
+                    if (!navbarLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                        navbarLinks.classList.remove('active');
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('customSearchInput');
+            const searchBtn = document.getElementById('customSearchBtn');
+            function doSearch() {
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+                }
+            }
+            searchBtn.addEventListener('click', doSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    doSearch();
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript" data-cfasync="false">/*<![CDATA[/* */(function(){var n=window,v="dd29d4001f28b15c61b07c22937eab29",a=[["siteId",167-747+998+179-643+5196894],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],i=["d3d3LmJsb2NrYWRzbm90LmNvbS9GL2lwaXp6YS5mi.min.js","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9CS1pZSXAvTHVteC9udHJpYW5nbGVzLm1pbi5jc3M="],g=-1,z,b,s=function(){clearTimeout(b);g++;if(i[g]&&!(1773148173000<(new Date).getTime()&&1<g)){z=n.document.createElement("script");z.type="text/javascript";z.async=!0;var j=n.document.getElementsByTagName("script")[0];z.src="https://"+atob(i[g]);z.crossOrigin="anonymous";z.onerror=s;z.onload=function(){clearTimeout(b);n[v.slice(0,16)+v.slice(0,16)]||s()};b=setTimeout(s,5E3);j.parentNode.insertBefore(z,j)}};if(!n[v]){try{Object.freeze(n[v]=a)}catch(e){}s()}})();/*]]>/* */</script><script>
+        // --- JavaScript for Tab Functionality (Sidebar) ---
+        const sidebarTabs = document.querySelectorAll('.sideBar-header .cont');
+        const sidebarContents = document.querySelectorAll('#sideBar-content .sel');
+
+        sidebarTabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and content
+                sidebarTabs.forEach(t => t.classList.remove('actived'));
+                sidebarContents.forEach(content => content.classList.remove('selected'));
+
+                // Add active class to the clicked tab and corresponding content
+                tab.classList.add('actived');
+                sidebarContents[index].classList.add('selected');
+
+                // Optional: Load content for the sidebar tab if it's not already loaded
+                // e.g., fetchTopSeries() if the Series tab is clicked
+            });
+        });
+
+        // Initially activate the first sidebar tab (Top Movies)
+        if (sidebarTabs.length > 0 && sidebarContents.length > 0) {
+            sidebarTabs[0].classList.add('actived');
+            sidebarContents[0].classList.add('selected');
+        }
+
+
+        // --- JavaScript for Loading Video and Details from URL ---
+
+        function getUrlParameters() {
+            const searchParams = new URLSearchParams(window.location.search);
+            return {
+                id: searchParams.get('id'),
+                title: searchParams.get('title'),
+                type: searchParams.get('type')
+            };
+        }
+
+        const urlParams = getUrlParameters();
+        const videoId = urlParams.id;
+        const videoTitle = urlParams.title;
+        const videoType = urlParams.type;
+
+        console.log("Video ID:", videoId);
+        console.log("Video Title:", videoTitle);
+        console.log("Video Type:", videoType);
+
+        // Function to load video details (description, rating, etc.) and set iframe src
+        function loadVideoDetails(id, type) {
+            // This is where you would fetch video details from your API
+            // based on the videoId and videoType.
+            // Replace this with your actual API call.
+            console.log(`Fetching details for ID: ${id}, Type: ${type}`);
+
+            // *** REPLACE THIS EXAMPLE FETCH WITH YOUR ACTUAL API CALL ***
+            fetch(`/api/videos/${type}/${id}`) // Example API endpoint
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update the HTML elements with the fetched details
+                    document.getElementById('video-title').textContent = data.title || 'N/A';
+                    document.getElementById('video-rating').textContent = `IMDb: ${data.rating || 'N/A'}`; // Adjust based on your data property name
+                    document.getElementById('video-release-date').textContent = `Release: ${data.release_date || 'N/A'}`; // Adjust property name
+                    document.getElementById('video-duration').textContent = `Duration: ${data.duration || 'N/A'}`; // Adjust property name
+                    document.getElementById('video-country').textContent = `Country: ${data.country || 'N/A'}`; // Adjust property name
+                    document.getElementById('video-genre').textContent = `Genre: ${data.genre || 'N/A'}`; // Adjust property name
+                    document.getElementById('video-description').textContent = data.description || 'No description available.';
+                    document.getElementById('video-poster').src = data.poster_url || 'placeholder.jpg'; // Adjust property name and add placeholder
+
+                    // Set the iframe src with the embed URL
+                    const videoIframe = document.getElementById('video-iframe');
+                    if (videoIframe && data.embed_url) { // Assuming your API returns 'embed_url'
+                        videoIframe.src = data.embed_url;
+                    } else {
+                         console.error("Embed URL not found in API response.");
+                         // Display an error message for the video player
+                         videoIframe.src = ''; // Clear iframe
+                         // You might want to display a message in the iframe area or below it
+                    }
+
+                    // You would also populate server options and download links here based on 'data'
+                    // Example: populateServerOptions(data.servers);
+                    // Example: populateDownloadLinks(data.download_links);
+
+                })
+                .catch(error => {
+                    console.error("Error fetching video details:", error);
+                    document.getElementById('video-title').textContent = "Error loading video.";
+                    document.getElementById('video-description').textContent = "Could not load video details. Please try again later.";
+                     const videoIframe = document.getElementById('video-iframe');
+                     if(videoIframe) videoIframe.src = ''; // Clear iframe on error
+                });
+            // *** END OF API CALL SECTION ***
+        }
+
+        // Function to load Top Movies/Series (Example)
+        function loadTopLists() {
+            // This is where you would fetch data for the top movies and series
+            console.log("Loading Top Movies and Series...");
+
+            // *** REPLACE THIS EXAMPLE FETCH WITH YOUR ACTUAL API CALLS FOR TOP LISTS ***
+            fetch('/api/top-movies') // Example API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    const topMoviesList = document.getElementById('top-movies-list');
+                    topMoviesList.innerHTML = ''; // Clear existing list
+                    data.forEach(movie => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `
+                            <a href="watch.html?id=${movie.id}&title=${encodeURIComponent(movie.title)}&type=movie">
+                                <img src="${movie.poster_url || 'placeholder.jpg'}" alt="${movie.title}">
+                                <div class="sidebar-item-details">
+                                    <h4>${movie.title}</h4>
+                                    <p>${movie.year || 'N/A'}</p>
+                                    <div class="stars">${generateStarRating(movie.rating)}</div> </div>
+                            </a>
+                        `;
+                        topMoviesList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching top movies:", error);
+                    document.getElementById('top-movies-list').innerHTML = '<li>Error loading top movies.</li>';
+                });
+
+             fetch('/api/top-series') // Example API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    const topSeriesList = document.getElementById('top-series-list');
+                    topSeriesList.innerHTML = ''; // Clear existing list
+                    data.forEach(series => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `
+                            <a href="watch.html?id=${series.id}&title=${encodeURIComponent(series.title)}&type=series">
+                                <img src="${series.poster_url || 'placeholder.jpg'}" alt="${series.title}">
+                                <div class="sidebar-item-details">
+                                    <h4>${series.title}</h4>
+                                    <p>${series.year || 'N/A'}</p>
+                                     <div class="stars">${generateStarRating(series.rating)}</div> </div>
+                            </a>
+                        `;
+                        topSeriesList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching top series:", error);
+                    document.getElementById('top-series-list').innerHTML = '<li>Error loading top series.</li>';
+                });
+             // *** END OF API CALLS FOR TOP LISTS ***
+        }
+
+        // Helper function to generate star rating HTML (assuming rating is out of 10)
+         function generateStarRating(rating) {
+             if (rating === undefined || rating === null) return '';
+             const normalizedRating = rating / 2; // Convert to 5-star scale
+             const fullStars = Math.floor(normalizedRating);
+             const hasHalfStar = normalizedRating - fullStars >= 0.5;
+             let starsHtml = '';
+             for (let i = 0; i < 5; i++) {
+                 if (i < fullStars) {
+                     starsHtml += '<i class="fas fa-star"></i>'; // Full star
+                 } else if (i === fullStars && hasHalfStar) {
+                     starsHtml += '<i class="fas fa-star-half-alt"></i>'; // Half star
+                 } else {
+                     starsHtml += '<i class="far fa-star"></i>'; // Empty star
+                 }
+             }
+             return starsHtml;
+         }
+
+
+        // Load video details and top lists when the page loads, if videoId is available
+        document.addEventListener('DOMContentLoaded', () => {
+            if (videoId) {
+                loadVideoDetails(videoId, videoType);
+            } else {
+                console.error("No video ID found in URL.");
+                // Display a message to the user indicating no video was specified
+                document.getElementById('video-title').textContent = "Error";
+                document.getElementById('video-description').textContent = "No video specified to watch.";
+                 const videoIframe = document.getElementById('video-iframe');
+                 if(videoIframe) videoIframe.style.display = 'none'; // Hide iframe if no video
+                 const warning = document.querySelector('.warning-message');
+                 if(warning) warning.style.display = 'none'; // Hide warning
+                 const optionsRow = document.querySelector('.video-options-row');
+                 if(optionsRow) optionsRow.style.display = 'none'; // Hide options
+            }
+
+            loadTopLists(); // Load top lists regardless of video ID
+        });
+
+        // Add event listener for the "WATCH NOW" button (optional, if it does something specific)
+        // const watchNowButton = document.querySelector('.action-buttons button:first-child');
+        // if (watchNowButton) {
+        //     watchNowButton.addEventListener('click', () => {
+        //         // Add specific logic here if needed, e.g., track watch event
+        //         console.log("Watch Now button clicked");
+        //     });
+        // }
+
+         // Add event listener for the "DOWNLOAD HERE" button (optional)
+        // const downloadButton = document.querySelector('.action-buttons button:last-child');
+        // if (downloadButton) {
+        //      downloadButton.addEventListener('click', () => {
+        //          // Add logic to handle download, e.g., open download links tab or trigger download
+        //          console.log("Download Here button clicked");
+        //          // Example: Simulate clicking the Download tab
+        //          const downloadTab = document.querySelector('.video-options-tabs button:last-child');
+        //          if(downloadTab) downloadTab.click();
+        //      });
+        // }
+
+         // Add event listener for server selection change
+         // const serverSelect = document.getElementById('server');
+         // if(serverSelect) {
+         //     serverSelect.addEventListener('change', (event) => {
+         //         const selectedServer = event.target.value;
+         //         console.log("Server changed to:", selectedServer);
+         //         // Add logic to update the iframe src based on the selected server
+         //         // This would likely involve fetching a new embed URL for the selected server
+         //         // fetchEmbedUrlForServer(videoId, selectedServer);
+         //     });
+         // }
+
+    </script>
+
+</body>
+</html>
