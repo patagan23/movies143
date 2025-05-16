@@ -200,7 +200,7 @@
     }
 
     .modal-video {
-        width: 100%; /* Make video iframe take full width */
+        width: 150%; /* Make video iframe take full width */
         height: auto; /* Maintain aspect ratio */
         flex-grow: 2; /* Allow video to take more space */
     }
