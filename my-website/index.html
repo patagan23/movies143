@@ -41,23 +41,57 @@
         <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
     </div>
 
-    <div class="trending-section">
-        <h2>Trending</h2>
-        <div class="trending-tabs">
-            <button class="tab active" onclick="showTrending('movies')">Movies</button>
-            <button class="tab" onclick="showTrending('series')">Series</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Movie</title>
+    <link rel="stylesheet" href="css/player_style.css"> </head>
+<body>
+    <div class="player-wrapper">
+        <div class="video-player">
+            <iframe id="main-video" width="100%" height="auto" frameborder="0" allowfullscreen src="DEFAULT_VIDEO_URL"></iframe>
         </div>
-        <div id="trending-movies" class="trending-content active">
-            <div class="row">
-                <div class="list" id="movies-list"></div>
+        <div class="controls">
+            <div class="server-selector">
+                <label for="server">Select Server:</label>
+                <select id="server" onchange="changeVideoSource()">
+                    <option value="vidsrc.cc">vidsrc.cc</option>
+                    <option value="vidsrc.me">vidsrc.me</option>
+                    <option value="player.videasy.net">player.videasy.net</option>
+                </select>
             </div>
-        </div>
-        <div id="trending-series" class="trending-content">
-            <div class="row">
-                <div class="list" id="tvshows-list"></div>
+            <div class="actions">
+                <button class="watch-now-button">WATCH NOW</button>
+                <button class="download-button">DOWNLOAD HERE</button>
             </div>
         </div>
     </div>
+
+    <script>
+        function changeVideoSource() {
+            const server = document.getElementById('server').value;
+            const videoFrame = document.getElementById('main-video');
+            // Implement logic here to construct the correct video URL based on the server
+            let newVideoUrl = '';
+            if (server === 'vidsrc.cc') {
+                newVideoUrl = 'URL_FOR_VIDSRC_CC';
+            } else if (server === 'vidsrc.me') {
+                newVideoUrl = 'URL_FOR_VIDSRC_ME';
+            } else if (server === 'player.videasy.net') {
+                newVideoUrl = 'URL_FOR_PLAYER_VIDEASY_NET';
+            }
+            videoFrame.src = newVideoUrl;
+        }
+
+        // You'll need JavaScript logic to:
+        // 1. Get the correct video URL based on the movie clicked on the main page.
+        // 2. Potentially pass this URL to this page (e.g., via URL parameters).
+        // 3. Set the initial src of the iframe.
+    </script>
+</body>
+</html>
     
 <div class="row">
     <h2>Trending Anime</h2>
@@ -83,7 +117,7 @@
                 <option value="vidsrc.cc">Vidsrc.cc</option>
                 <option value="vidsrc.me">Vidsrc.me</option>
                 <option value="player.videasy.net">Player.Videasy.net</option>
-            </select>
+            </div>
         </div>
     </div>
 </div>
