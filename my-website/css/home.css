@@ -175,50 +175,67 @@
 @media (max-width: 500px) {
     /* ... other mobile styles ... */
 
+    .modal {
+        display: flex !important; /* Ensure modal is a flex container */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background: #000; /* Make background fully black for immersive view */
+        z-index: 9999; /* Ensure it's on top of everything */
+        top: 0; /* Reset top and left to cover the whole viewport */
+        left: 0;
+    }
+
     .modal-content {
-        width: 100%; /* Make the modal take the full width */
-        height: 100%; /* Make the modal take the full height */
-        margin: 0; /* Remove default margins to fill the screen */
-        border-radius: 0; /* Remove border radius for full screen */
+        width: 100%; /* Take full width */
+        height: 100%; /* Take full height */
+        max-width: none; /* Override max-width */
+        max-height: none; /* Override max-height */
+        border-radius: 0; /* Remove border radius */
+        padding: 0; /* Remove padding */
+        overflow: hidden; /* Prevent scrollbars on the modal */
+        display: flex; /* Make content a flex container */
+        flex-direction: column; /* Stack elements */
     }
 
     .modal-body {
-        flex-direction: column; /* Stack elements vertically in full-screen modal */
-        align-items: stretch; /* Stretch items to fill width */
-        height: calc(100% - /* Adjust for close button if needed */ 40px); /* Adjust height */
-        overflow: auto; /* Allow scrolling if content overflows */
+        flex-grow: 1; /* Allow body to take available vertical space */
+        display: flex;
+        align-items: center; /* Vertically center content (can adjust) */
+        justify-content: center; /* Horizontally center content (can adjust) */
+        overflow: hidden; /* Hide any overflow within the body */
     }
 
-    .modal-body img {
-        max-height: 30%; /* Adjust image height in full-screen mode */
-        width: auto;
-    }
-
+    .modal-body img,
     .modal-text {
-        flex-grow: 1; /* Allow text to take remaining space */
-        overflow-y: auto; /* Scrollable text if it's long */
+        display: none; /* Hide other elements when in "full-screen" video mode */
     }
 
     .modal-video {
-        width: 150%; /* Make video iframe take full width */
-        height: auto; /* Maintain aspect ratio */
-        flex-grow: 2; /* Allow video to take more space */
+        width: 100%; /* Make video take full width */
+        height: 100%; /* Make video take full height */
+        flex-grow: 1; /* Ensure it fills the modal-body */
     }
 
     .close {
-        top: 15px;
-        right: 15px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
         font-size: 30px;
-        color: white; /* Ensure close button is visible on dark background */
-        z-index: 20; /* Ensure close button is above the modal content */
+        color: white;
+        z-index: 10000; /* Ensure close button is on top */
+        background: rgba(0, 0, 0, 0.5); /* Add a background for better visibility */
+        padding: 5px;
+        border-radius: 5px;
     }
 
     .server-selector {
-        position: absolute; /* Position server selector at the bottom */
-        bottom: 10px;
-        left: 10px;
-        z-index: 20;
-        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        z-index: 10000;
+        background: rgba(0, 0, 0, 0.5);
         color: white;
         padding: 5px;
         border-radius: 5px;
