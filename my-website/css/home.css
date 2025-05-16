@@ -127,6 +127,23 @@
     margin-bottom: 20px;
 }
 
+.video-container {
+    width: 100%; /* Keep the video container responsive */
+    position: relative; /* For aspect ratio if you're using it */
+    overflow: hidden; /* To contain the iframe */
+    /* No need for specific centering here if parent is flex */
+}
+
+#modal-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ... other modal styles ... */
+
     .modal-body img {
       width: 100%;
       border-radius: 5px;
