@@ -122,10 +122,3 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
 
     init();
 
-function openModal(imageSrc, title, description, rating) {
-  document.getElementById('modal-image').src = imageSrc;
-  document.getElementById('modal-title').textContent = title;
-  document.getElementById('modal-description').textContent = description;
-  document.getElementById('modal-rating').innerHTML = '⭐'.repeat(Math.round(rating));
-  document.getElementById('modal').style.display = 'block';
-}
