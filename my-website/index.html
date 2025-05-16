@@ -63,35 +63,29 @@
     <div class="list" id="anime-list"></div>
 </div>
 
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-            <div class="modal-body">
-                <img id="modal-image" src="" alt="">
-                <div class="modal-text">
-                    <h2 id="modal-title"></h2>
-                    <div class="stars" id="modal-rating"></div>
-                    <p id="modal-description"></p>
-                </div>
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+        <div class="modal-body">
+            <img id="modal-image" src="" alt="">
+            <div class="modal-text">
+                <h2 id="modal-title"></h2>
+                <div class="stars" id="modal-rating"></div>
+                <p id="modal-description"></p>
             </div>
-            <div class="server-selector">
-                <label for="server">Change Server:</label>
-                <select id="server" onchange="changeServer()">
-                    <option value="vidsrc.cc">Vidsrc.cc</option>
-                    <option value="vidsrc.me">Vidsrc.me</option>
-                    <option value="player.videasy.net">Player.Videasy.net</option>
-                </select>
+            <div class="video-container"> <iframe id="modal-video" width="100%" height="auto" frameborder="0" allowfullscreen></iframe>
             </div>
-            <iframe id="modal-video" width="200%" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="server-selector">
+            <label for="server">Change Server:</label>
+            <select id="server" onchange="changeServer()">
+                <option value="vidsrc.cc">Vidsrc.cc</option>
+                <option value="vidsrc.me">Vidsrc.me</option>
+                <option value="player.videasy.net">Player.Videasy.net</option>
+            </select>
         </div>
     </div>
-
-<div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
 </div>
-
 
 <footer class="footer">
     <div class="footer-content">
