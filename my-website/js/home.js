@@ -122,3 +122,23 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
 
     init();
 
+function loadVideoDetails(id, type) {
+    console.log(`Fetching details for ID: ${id}, Type: ${type}`);
+
+    fetch(`/api/videos/<span class="math-inline">\{type\}/</span>{id}`) // Replace with your actual API endpoint
+        .then(response => response.json())
+        .then(data => {
+            const videoIframe = document.getElementById('video-iframe');
+            if (videoIframe && data.embed_url) { // Assuming your API response has 'embed_url'
+                videoIframe.src = data.embed_url;
+            }
+            // Also load other details like description, etc.
+            document.getElementById('video-description').textContent = data.description || 'No description available.';
+            // ... load other details ...
+        })
+        .catch(error => {
+            console.error("Error fetching video details:", error);
+            document.getElementById('video-description').textContent = "Error loading video.";
+        });
+}
+
