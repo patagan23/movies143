@@ -206,39 +206,7 @@
         border-radius: 0; /* Remove border radius for full screen */
     }
 
-/* ... your existing CSS ... */
 
-.modal-body {
-    display: flex;
-    flex-direction: column; /* Adjust as needed */
-    align-items: center; /* Adjust as needed */
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.video-container { /* Style for the video container */
-    width: 100%; /* Make it take the full width of the modal-body */
-    position: relative; /* Needed for aspect ratio trick */
-    overflow: hidden; /* Prevent overflow of the iframe */
-}
-
-/* Adjust the padding-bottom based on the aspect ratio of your videos */
-/* For a 16:9 aspect ratio (common for widescreen) */
-.video-container::before {
-    content: "";
-    display: block;
-    padding-bottom: 56.25%; /* (height / width) * 100 = (9 / 16) * 100 */
-}
-
-#modal-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* ... rest of your CSS ... */
     .modal-text {
         flex-grow: 1; /* Allow text to take remaining space */
         overflow-y: auto; /* Scrollable text if it's long */
