@@ -40,33 +40,28 @@
         <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
     </div>
 
-<div class="popular-section">
-    <h2>Popular</h2>
-    <div class="popular-tabs">
-        <button class="tab active" onclick="showPopular('movies')">Movies</button>
-        <button class="tab" onclick="showPopular('series')">Series</button>
+    <div class="trending-section">
+        <h2>Trending</h2>
+        <div class="trending-tabs">
+            <button class="tab active" onclick="showTrending('movies')">Movies</button>
+            <button class="tab" onclick="showTrending('series')">Series</button>
+        </div>
+        <div id="trending-movies" class="trending-content active">
+            <div class="row">
+                <div class="list" id="movies-list"></div>
+            </div>
+        </div>
+        <div id="trending-series" class="trending-content">
+            <div class="row">
+                <div class="list" id="tvshows-list"></div>
+            </div>
+        </div>
     </div>
-    <div id="popular-movies" class="popular-content active">
-        <div class="popular-list" id="movies-list">
-            <div class="popular-item">
-                <a href="YOUR_MOVIE_URL_HERE" target="_blank">
-                    <img src="URL_TO_MOVIE_POSTER" alt="Movie Title">
-                </a>
-                <div class="popular-title">Movie Title</div>
-            </div>
-            </div>
+
+    <div class="row">
+        <h2>Trending Anime</h2>
+        <div class="list" id="anime-list"></div>
     </div>
-    <div id="popular-series" class="popular-content">
-        <div class="popular-list" id="tvshows-list">
-            <div class="popular-item">
-                <a href="YOUR_SERIES_URL_HERE" target="_blank">
-                    <img src="URL_TO_SERIES_POSTER" alt="Series Title">
-                </a>
-                <div class="popular-title">Series Title</div>
-            </div>
-            </div>
-    </div>
-</div>
 
 <div class="row">
     <h2>Trending Anime</h2>
