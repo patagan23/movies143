@@ -127,19 +127,19 @@
 <div class="live-banner" id="live-banner">
     <div class="banner-content">
         <div class="banner-info">
-            <h2 class="banner-title">Among Friends</h2>
+            <h2 class="banner-title">Plus belle la vie</h2>
             <div class="banner-meta">
-                <span class="rating">IMDb: 2.5</span>
-                <span class="year">1993</span>
+                <span class="rating">WEB: 4.2/5</span>
+                <span class="year">2004</span>
                 <span class="genre">TV Show</span>
             </div>
-            <p class="banner-description">Miller introduces viewers into the world of Money and Cham.</p>
+            <p class="banner-description">The daily lives of the inhabitants of "Le Mistral", an enclaved neighbourhood in the Mediterranean port city of Marseille, where wealthy families cross paths with the less well off.</p>
             <a href="#" class="watch-now-button">
                 <i class="fas fa-play-circle"></i> Watch Now
             </a>
         </div>
         <div class="banner-background">
-            <img src="path/to/your/banner-image.jpg" alt="Among Friends Banner">
+            <img src="path/to/your/plus-belle-la-vie-banner.jpg" alt="Plus belle la vie Banner">
         </div>
     </div>
 </div>
@@ -237,7 +237,7 @@
 // You can dynamically update the banner content using JavaScript
 // For example, when a "live" video is selected.
 
-function updateLiveBanner(title, imdbRating, year, genre, description, imageUrl, videoUrl) {
+function updateLiveBanner(title, rating, year, genre, description, imageUrl, videoUrl) {
     const banner = document.getElementById('live-banner');
     const bannerTitle = banner.querySelector('.banner-title');
     const bannerMeta = banner.querySelector('.banner-meta');
@@ -249,7 +249,7 @@ function updateLiveBanner(title, imdbRating, year, genre, description, imageUrl,
     const watchNowButton = banner.querySelector('.watch-now-button');
 
     bannerTitle.textContent = title;
-    ratingSpan.textContent = `IMDb: ${imdbRating}`;
+    ratingSpan.textContent = rating;
     yearSpan.textContent = year;
     genreSpan.textContent = genre;
     bannerDescription.textContent = description;
@@ -258,21 +258,21 @@ function updateLiveBanner(title, imdbRating, year, genre, description, imageUrl,
 }
 
 // Example usage:
-// Assuming you have data for the currently "live" video
+// Assuming you have data for "Plus belle la vie"
 const liveVideoData = {
-    title: "Among Friends",
-    imdbRating: "2.5",
-    year: "1993",
+    title: "Plus belle la vie",
+    rating: "WEB: 4.2/5",
+    year: "2004",
     genre: "TV Show",
-    description: "Miller introduces viewers into the world of Money and Cham.",
-    imageUrl: "path/to/your/banner-image.jpg", // Replace with the actual image URL
+    description: "The daily lives of the inhabitants of \"Le Mistral\", an enclaved neighbourhood in the Mediterranean port city of Marseille, where wealthy families cross paths with the less well off.",
+    imageUrl: "path/to/your/plus-belle-la-vie-banner.jpg", // Replace with the actual image URL
     videoUrl: "#" // Replace with the actual video URL
 };
 
 // Call the function to update the banner
 updateLiveBanner(
     liveVideoData.title,
-    liveVideoData.imdbRating,
+    liveVideoData.rating,
     liveVideoData.year,
     liveVideoData.genre,
     liveVideoData.description,
