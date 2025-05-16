@@ -25,10 +25,15 @@
 <div class="navbar">
     <a href="#" class="logo-container">
         <span class="logo-text">
-            <span style="color: violet;">Movie</span><span style="color: red;">143</span>
+            <span style="color: violet;">Mobi</span><span style="color: red;">TV</span>
         </span>
     </a>
-    <input type="text" id="search-input" class="search-bar" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+    <div class="search-container">
+        <input type="text" id="search-input" class="search-bar" placeholder="Search Movies">
+        <button class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#movies-list">Movies</a>
@@ -36,6 +41,88 @@
         <a href="#anime-list">Animations</a>
     </div>
 </div>
+
+<style>
+.navbar {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out logo, search, and links */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    margin-right: 0;
+    width: 200px; /* Adjust width as needed */
+    color: #333;
+}
+
+.search-button {
+    background-color: #dc3545; /* Red search button */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    margin-left: 0;
+}
+
+.search-button i {
+    /* Style the search icon if needed */
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px; /* Spacing between links */
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #333;
+}
+
+/* Adjust colors for Movie143 logo */
+.logo-text span:first-child {
+    color: violet !important; /* Override inline style if necessary */
+}
+
+.logo-text span:last-child {
+    color: red !important; /* Override inline style if necessary */
+}
+</style>
+
+<script>
+// You can keep your existing searchTMDB() function
+// The HTML structure for the search input and button is updated here
+</script>
 
     <div class="banner" id="banner">
         <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
