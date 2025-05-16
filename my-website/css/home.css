@@ -326,3 +326,9 @@
     gap: 8px;
   }
 }
+
+.trending-tabs {
+    display: flex;
+    justify-content: center; /* Add this line to center the buttons horizontally */
+    margin-bottom: 15px;
+}
