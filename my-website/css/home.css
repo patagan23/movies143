@@ -140,10 +140,34 @@
       border-radius: 5px;
     }
 
-    .modal-text {
-      flex: 1;
-      text-align: left;
+/* Ensure modal-text is visible */
+.modal-text {
+    display: block; /* Or flex, if you want to style its content with flexbox */
+    text-align: left; /* Adjust text alignment */
+    flex: 1; /* If modal-body is row, allow text to take up space */
+}
+
+/* Adjust modal-body for larger screens if needed */
+@media (min-width: 501px) {
+    .modal-body {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
     }
+
+    #modal-image {
+        max-width: 30%; /* Adjust image width */
+        height: auto;
+    }
+
+    .modal-text {
+        flex: 1;
+    }
+
+    .video-container {
+        width: 100%; /* Video takes full width below image/text */
+    }
+}
 
     .modal img {
       width: 25%;
