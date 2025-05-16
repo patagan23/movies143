@@ -23,21 +23,19 @@
 <body>
 
 <div class="navbar">
-    <a href="#">
+    <a href="#" class="logo-container">
         <span class="logo-text">
             <span style="color: violet;">Movie</span><span style="color: red;">143</span>
         </span>
     </a>
+    <input type="text" class="search-bar" placeholder="Search..." oninput="searchTMDB()" />
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#movies-list">Movies</a>
+        <a href="#tvshows-list">TV Shows</a>
+        <a href="#anime-list">Animations</a>
     </div>
-
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#movies-list">Movies</a>
-            <a href="#tvshows-list">TV Shows</a>
-            <a href="#anime-list">Animations</a>
-            <input type="text" class="search-bar" placeholder="Search..." oninput="searchTMDB()" />
-        </div>
-    </div>
+</div>
 
     <div class="banner" id="banner">
         <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
