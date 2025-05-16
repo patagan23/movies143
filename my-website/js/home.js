@@ -121,25 +121,3 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
     }
 
     init();
-
-function loadVideoDetails(id, type) {
-    console.log(`Fetching details for ID: ${id}, Type: ${type}`);
-
-    // *** REPLACE THIS WITH YOUR LOGIC TO GET THE THIRD-PARTY EMBED URL ***
-    fetch(`/api/third-party-videos/${type}/${id}`) // Example API endpoint
-        .then(response => response.json())
-        .then(data => {
-            const videoIframe = document.getElementById('video-iframe');
-            if (videoIframe && data.embed_url) { // Assuming your API returns 'embed_url'
-                videoIframe.src = data.embed_url;
-            }
-            // Load other details if provided by your data source
-            document.getElementById('video-description').textContent = data.description || 'No description available.';
-            // ... load other details ...
-        })
-        .catch(error => {
-            console.error("Error fetching third-party video details:", error);
-            document.getElementById('video-description').textContent = "Error loading video.";
-        });
-    // *** REMOVE OR COMMENT OUT ANY EXAMPLE STATIC DATA FOR YOUR OWN VIDEOS ***
-}
