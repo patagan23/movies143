@@ -27,7 +27,10 @@
             <span style="color: violet;">Movie</span><span style="color: red;">143</span>
         </span>
     </a>
-    <input type="text" id="search-input" class="search-bar" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+    <div class="search-container">
+        <label for="search-input" class="search-again-label">Search Again</label>
+        <input type="text" id="search-input" class="search-bar" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+        <button class="search-button"><i class="fas fa-search"></i></button> </div>
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#movies-list">Movies</a>
@@ -38,7 +41,7 @@
 
 <div class="search-modal" id="search-modal">
     <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <div class="results" id="search-results"></div>
+    <div id="search-header"></div> <div class="results" id="search-results"></div>
 </div>
 
     <div class="banner" id="banner">
