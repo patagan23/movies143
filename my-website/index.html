@@ -40,23 +40,37 @@
         <h1 id="banner-title">The Late Late Show with Craig Ferguson</h1>
     </div>
 
-    <div class="trending-section">
-        <h2>Trending</h2>
-        <div class="trending-tabs">
-            <button class="tab active" onclick="showTrending('movies')">Movies</button>
-            <button class="tab" onclick="showTrending('series')">Series</button>
-        </div>
-        <div id="trending-movies" class="trending-content active">
-            <div class="row">
-                <div class="list" id="movies-list"></div>
-            </div>
-        </div>
-        <div id="trending-series" class="trending-content">
-            <div class="row">
-                <div class="list" id="tvshows-list"></div>
-            </div>
+<div class="trending-section">
+    <h2>Trending</h2>
+    <div class="trending-tabs">
+        <button class="tab active" onclick="showTrending('movies')">Movies</button>
+        <button class="tab" onclick="showTrending('series')">Series</button>
+    </div>
+    <div id="trending-movies" class="trending-content active">
+        <div class="trending-row">
+            <div class="trending-list" id="movies-list">
+                <div class="movie-item">
+                    <a href="YOUR_MOVIE_URL_HERE" target="_blank">
+                        <img src="URL_TO_MOVIE_POSTER" alt="Movie Title">
+                    </a>
+                    <div class="movie-title">Movie Title</div>
+                </div>
+                </div>
         </div>
     </div>
+    <div id="trending-series" class="trending-content">
+        <div class="trending-row">
+            <div class="trending-list" id="tvshows-list">
+                <div class="movie-item">
+                    <a href="YOUR_SERIES_URL_HERE" target="_blank">
+                        <img src="URL_TO_SERIES_POSTER" alt="Series Title">
+                    </a>
+                    <div class="movie-title">Series Title</div>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
 
     <div class="row">
         <h2>Trending Anime</h2>
