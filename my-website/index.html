@@ -152,17 +152,16 @@
         <div class="list" id="anime-list"></div>
     </div>
 
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-            <div class="modal-body">
-                <img id="modal-image" src="" alt="">
-                <div class="modal-text">
-                    <h2 id="modal-title"></h2>
-                    <div class="stars" id="modal-rating"></div>
-                    <p id="modal-description"></p>
-                </div>
-            </div>
+<div class="modal-body">
+    <div id="video-selection">
+        </div>
+    <video id="my-video" controls width="100%" height="auto" style="display: none;"></video>
+    <div class="video-details">
+        <h2 id="modal-title"></h2>
+        <div class="stars" id="modal-rating"></div>
+        <p id="modal-description"></p>
+    </div>
+</div>
             <div class="server-selector">
                 <label for="server">Change Server:</label>
                 <select id="server" onchange="changeServer()">
