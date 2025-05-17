@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Player</title>
+    <style>
+        /* Basic styling to make the iframe fill the page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrollbars on the body */
+            background-color: #000; /* Black background */
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #player-iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove iframe border */
+        }
+        .error-message {
+            padding: 20px;
+            text-align: center;
+        }
+        .loading-message {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <iframe id="player-iframe" allowfullscreen sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation">
+            </iframe>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoContainer = document.getElementById('video-container');
+            const iframe = document.getElementById('player-iframe');
+            
+            // Show a loading message initially
+            const loadingMessage = document.createElement('p');
+            loadingMessage.textContent = 'Loading player...';
+            loadingMessage.className = 'loading-message';
+            videoContainer.insertBefore(loadingMessage, iframe);
+
+            // Get the embed URL from the query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const embedUrl = urlParams.get('src'); // Changed from 'embed_url' to 'src' for consistency
+
+            if (embedUrl) {
+                try {
+                    // Decode the URL
+                    const decodedUrl = decodeURIComponent(embedUrl);
+                    iframe.src = decodedUrl;
+                    
+                    iframe.onload = () => {
+                        // Remove loading message once iframe has loaded content
+                        loadingMessage.style.display = 'none';
+                    };
+                    iframe.onerror = () => {
+                        // Handle iframe loading errors (e.g. if the src is invalid or blocked)
+                        loadingMessage.style.display = 'none';
+                        const errorElement = document.createElement('p');
+                        errorElement.className = 'error-message';
+                        errorElement.innerHTML = 'Failed to load video player. The source might be unavailable or blocked.<br>Please try a different source on the previous page.';
+                        videoContainer.insertBefore(errorElement, iframe);
+                        iframe.style.display = 'none'; // Hide the broken iframe
+                    };
+
+                } catch (e) {
+                    console.error("Error decoding URL: ", e);
+                    loadingMessage.style.display = 'none';
+                    const errorElement = document.createElement('p');
+                    errorElement.className = 'error-message';
+                    errorElement.textContent = 'Error: Invalid video source URL provided.';
+                    videoContainer.insertBefore(errorElement, iframe);
+                    iframe.style.display = 'none';
+                }
+            } else {
+                loadingMessage.style.display = 'none';
+                const errorElement = document.createElement('p');
+                errorElement.className = 'error-message';
+                errorElement.textContent = 'Error: No video source URL provided. Please go back and select a movie/series.';
+                videoContainer.insertBefore(errorElement, iframe);
+                iframe.style.display = 'none'; // Hide iframe if no src
+            }
+
+            // Attempt to set the title of the tab if movie title is passed
+            const movieTitle = urlParams.get('title');
+            if (movieTitle) {
+                document.title = decodeURIComponent(movieTitle) + " - Movie143 Player";
+            }
+        });
+    </script>
+</body>
+</html>
