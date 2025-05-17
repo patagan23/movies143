@@ -29,3 +29,24 @@
     </script>
 </body>
 </html>
+
+<div id="main-content-area">
+    <div class="banner" id="banner">...</div>
+    <div class="trending-section">...</div>
+    <div class="row"> ... </div>
+    </div>
+
+<div id="video-player-section" style="display:none; padding: 20px;">
+    <button id="back-to-browse-button">&larr; Back to Browse</button>
+    <h2 id="player-title" style="color: white;"></h2>
+    <div class="server-selector" style="margin: 10px 0;">
+        <label for="player-server-select" style="color: white;">Change Server:</label>
+        <select id="player-server-select">
+            <option value="vidsrc.cc">Vidsrc.cc</option>
+            <option value="vidsrc.me">Vidsrc.me</option>
+            <option value="player.videasy.net">Player.Videasy.net</option>
+        </select>
+    </div>
+    <iframe id="player-iframe" width="100%" style="min-height: 500px; border:none;" allowfullscreen></iframe>
+    <p id="player-description" style="color: #ccc; margin-top:10px;"></p>
+</div>
