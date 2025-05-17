@@ -121,38 +121,3 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
     }
 
     init();
-
-//  Add this to your existing <script> section
-
-const videoSources = [
-    { title: "Video 1", url: "your_video_1.mp4", description: "Description of Video 1", rating: 7 }, // Replace with your actual video URLs
-    { title: "Video 2", url: "your_video_2.mp4", description: "Description of Video 2", rating: 9 },
-    { title: "Video 3", url: "your_video_3.mp4", description: "Description of Video 3", rating: 6 },
-    // Add more video objects as needed
-];
-
-function loadVideoDetails(videoUrl, title, description, rating) { // Modified function
-    const videoPlayer = document.getElementById('my-video');
-    const videoSelectionDiv = document.getElementById('video-selection');
-    videoPlayer.style.display = 'block'; //show video player
-    videoPlayer.src = videoUrl;
-    videoPlayer.load();
-
-    document.getElementById('modal-title').textContent = title;
-    document.getElementById('modal-description').textContent = description;
-    document.getElementById('modal-rating').innerHTML = generateStarRating(rating);
-}
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-     const videoSelectionDiv = document.getElementById('video-selection');
-     videoSources.forEach((video, index) => {
-         const button = document.createElement('button');
-         button.textContent = video.title;
-         button.addEventListener('click', () => {
-             loadVideoDetails(video.url, video.title, video.description, video.rating);
-         });
-         videoSelectionDiv.appendChild(button);
-     });
-});
