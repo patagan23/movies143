@@ -130,3 +130,33 @@ if (embedUrl) {
     const decodedUrl = decodeURIComponent(embedUrl);
     iframe.src = decodedUrl; // This is where the received URL is put into the iframe
 }
+
+// This is part of your main JavaScript (the one with API_KEY, fetchTrending, etc.)
+
+const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const IMG_URL = 'https://image.tmdb.org/t/p/original'; // You already have this
+
+let currentItem; // Make sure currentItem is defined and accessible
+
+// Your TMDB API fetching functions will use API_KEY and BASE_URL
+async function fetchTrending(type) {
+    // Example: This function needs API_KEY and BASE_URL
+    const res = await fetch(`${BASE_URL}/trending/${type}/week?api_key=${API_KEY}`);
+    const data = await res.json();
+    return data.results;
+}
+
+async function searchTMDB(query) {
+    // Example: This function also needs API_KEY and BASE_URL
+    if (!query.trim()) return [];
+    const res = await fetch(`${BASE_URL}/search/multi?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
+    const data = await res.json();
+    return data.results;
+}
+
+// Add your other original functions like fetchTrendingAnime, displayBanner, displayList,
+// closeModal, openSearchModal, closeSearchModal, and init here.
+// They will use the constants defined above.
+
+// ... (rest of
