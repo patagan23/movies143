@@ -122,3 +122,11 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
 
     init();
 
+// Inside player.html
+const urlParams = new URLSearchParams(window.location.search);
+const embedUrl = urlParams.get('src'); // It looks for a parameter named 'src'
+// ...
+if (embedUrl) {
+    const decodedUrl = decodeURIComponent(embedUrl);
+    iframe.src = decodedUrl; // This is where the received URL is put into the iframe
+}
