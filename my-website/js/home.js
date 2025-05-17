@@ -121,3 +121,5 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
     }
 
     init();
+
+fetch(`/api/videos/<span class="math-inline">\{type\}/</span>{id}`) // Example API endpoint
