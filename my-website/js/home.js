@@ -43,15 +43,15 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
       });
     }
 
-function showDetails(item) {
-    currentItem = item;
-    document.getElementById('modal-title').textContent = item.title || item.name;
-    document.getElementById('modal-description').textContent = item.overview;
-    document.getElementById('modal-image').src = `<span class="math-inline">\{IMG\_URL\}</span>{item.poster_path}`;
-    document.getElementById('modal-rating').innerHTML = '★'.repeat(Math.round(item.vote_average / 2));
-    changeServer(); // Call changeServer() to embed the video
-    document.getElementById('modal').style.display = 'flex'; // Show the modal
-}
+    function showDetails(item) {
+      currentItem = item;
+      document.getElementById('modal-title').textContent = item.title || item.name;
+      document.getElementById('modal-description').textContent = item.overview;
+      document.getElementById('modal-image').src = `${IMG_URL}${item.poster_path}`;
+      document.getElementById('modal-rating').innerHTML = '★'.repeat(Math.round(item.vote_average / 2));
+      changeServer();
+      document.getElementById('modal').style.display = 'flex';
+    }
 
     function changeServer() {
       const server = document.getElementById('server').value;
@@ -122,18 +122,14 @@ function showDetails(item) {
 
     init();
 
-function changeServer() {
-    const server = document.getElementById('server').value;
-    const type = currentItem.media_type === "movie" ? "movie" : "tv";
-    let embedURL = "";
-
-    if (server === "vidsrc.cc") {
-        embedURL = `https://vidsrc.cc/v2/embed/<span class="math-inline">\{type\}/</span>{currentItem.id}`;
-    } else if (server === "vidsrc.me") {
-        embedURL = `https://vidsrc.net/embed/<span class="math-inline">\{type\}/?tmdb\=</span>{currentItem.id}`;
-    } else if (server === "player.videasy.net") {
-        embedURL = `https://player.videasy.net/<span class="math-inline">\{type\}/</span>{currentItem.id}`;
+function loadVideo(movieId, server) {
+    let videoSrc = '';
+    if (server === 'vidsrc.cc') {
+        videoSrc = `https://vidsrc.cc/embed/${movieId}`; // Example URL structure
+    } else if (server === 'vidsrc.me') {
+        videoSrc = `https://vidsrc.me/embed/${movieId}`; // Example URL structure
+    } else if (server === 'player.videasy.net') {
+        videoSrc = `https://player.videasy.net/embed/${movieId}`; // Example URL structure
     }
-
-    document.getElementById('modal-video').src = embedURL;
+    document.getElementById('modal-video').src = videoSrc;
 }
