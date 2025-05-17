@@ -122,14 +122,3 @@ function showDetails(item) {
 
     init();
 
-function loadVideo(movieId, server) {
-    let videoSrc = '';
-    if (server === 'vidsrc.cc') {
-        videoSrc = `https://vidsrc.cc/embed/${movieId}`; // Example URL structure
-    } else if (server === 'vidsrc.me') {
-        videoSrc = `https://vidsrc.me/embed/${movieId}`; // Example URL structure
-    } else if (server === 'player.videasy.net') {
-        videoSrc = `https://player.videasy.net/embed/${movieId}`; // Example URL structure
-    }
-    document.getElementById('modal-video').src = videoSrc;
-}
