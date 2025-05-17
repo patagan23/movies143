@@ -3,6 +3,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Movie143</title>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const logoLink = document.querySelector('.logo-container'); //  assuming this is the correct selector
+
+  if (logoLink) {
+    logoLink.addEventListener('click', () => {
+      window.location.reload();
+    });
+  }
+});
+</script>
 
     <link rel="stylesheet" href="css/home.css">
     <link rel="preload" href="css/home.css" as="style">
