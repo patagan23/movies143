@@ -122,3 +122,18 @@ function showDetails(item) {
 
     init();
 
+function changeServer() {
+    const server = document.getElementById('server').value;
+    const type = currentItem.media_type === "movie" ? "movie" : "tv";
+    let embedURL = "";
+
+    if (server === "vidsrc.cc") {
+        embedURL = `https://vidsrc.cc/v2/embed/<span class="math-inline">\{type\}/</span>{currentItem.id}`;
+    } else if (server === "vidsrc.me") {
+        embedURL = `https://vidsrc.net/embed/<span class="math-inline">\{type\}/?tmdb\=</span>{currentItem.id}`;
+    } else if (server === "player.videasy.net") {
+        embedURL = `https://player.videasy.net/<span class="math-inline">\{type\}/</span>{currentItem.id}`;
+    }
+
+    document.getElementById('modal-video').src = embedURL;
+}
