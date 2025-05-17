@@ -53,26 +53,36 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
       document.getElementById('modal').style.display = 'flex';
     }
 
-    function changeServer() {
-      const server = document.getElementById('server').value;
-      const type = currentItem.media_type === "movie" ? "movie" : "tv";
-      let embedURL = "";
+function changeServer() {
+    const server = document.getElementById('server').value;
+    // Ensure currentItem is defined and has an id
+    if (!currentItem || typeof currentItem.id === 'undefined') {
+        console.error("Current item is not defined or has no ID.");
+        document.getElementById('modal-video').src = 'about:blank'; // Clear iframe
+        return;
+    }
+    const type = currentItem.media_type === "movie" ? "movie" : "tv";
+    let embedURL = "";
 
-      if (server === "vidsrc.cc") {
+    if (server === "vidsrc.cc") {
         embedURL = `https://vidsrc.cc/v2/embed/${type}/${currentItem.id}`;
-      } else if (server === "vidsrc.me") {
+    } else if (server === "vidsrc.me") {
+        // Note: Your HTML option is "vidsrc.me", but you're using "vidsrc.net" here.
+        // This is often fine, as the display name can differ from the actual embed domain.
         embedURL = `https://vidsrc.net/embed/${type}/?tmdb=${currentItem.id}`;
-      } else if (server === "player.videasy.net") {
+    } else if (server === "player.videasy.net") {
         embedURL = `https://player.videasy.net/${type}/${currentItem.id}`;
-      }
-
-      document.getElementById('modal-video').src = embedURL;
     }
+    // To add more servers, you'll add more 'else if' blocks here.
 
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-      document.getElementById('modal-video').src = '';
+    if (embedURL) {
+        document.getElementById('modal-video').src = embedURL;
+        console.log("Attempting to load video from:", embedURL);
+    } else {
+        console.warn("Embed URL could not be constructed for server:", server);
+        document.getElementById('modal-video').src = 'about:blank'; // Clear iframe if no URL
     }
+}
 
     function openSearchModal() {
       document.getElementById('search-modal').style.display = 'flex';
