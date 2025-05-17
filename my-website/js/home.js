@@ -43,24 +43,15 @@ const API_KEY = 'bc380f1e1f63773ba93930ab82ebca8e';
       });
     }
 
-function showDetails(item) {
-    const movieId = item.id;
-    const movieTitle = encodeURIComponent(item.title || item.name); // Encode title for URL safety
-    const mediaType = item.media_type === "movie" ? "movie" : "tv";
-
-    const watchUrl = `watch.html?id=${movieId}&title=${movieTitle}&type=${mediaType}`;
-
-    window.open(watchUrl, '_blank'); // '_blank' opens in a new tab
-
-    // Remove or comment out these lines:
-    // currentItem = item;
-    // document.getElementById('modal-title').textContent = item.title || item.name;
-    // document.getElementById('modal-description').textContent = item.overview;
-    // document.getElementById('modal-image').src = `${IMG_URL}${item.poster_path}`;
-    // document.getElementById('modal-rating').innerHTML = '★'.repeat(Math.round(item.vote_average / 2));
-    // changeServer();
-    // document.getElementById('modal').style.display = 'flex';
-}
+    function showDetails(item) {
+      currentItem = item;
+      document.getElementById('modal-title').textContent = item.title || item.name;
+      document.getElementById('modal-description').textContent = item.overview;
+      document.getElementById('modal-image').src = `${IMG_URL}${item.poster_path}`;
+      document.getElementById('modal-rating').innerHTML = '★'.repeat(Math.round(item.vote_average / 2));
+      changeServer();
+      document.getElementById('modal').style.display = 'flex';
+    }
 
     function changeServer() {
       const server = document.getElementById('server').value;
@@ -130,3 +121,15 @@ function showDetails(item) {
     }
 
     init();
+
+function loadVideo(movieId, server) {
+    let videoSrc = '';
+    if (server === 'vidsrc.cc') {
+        videoSrc = `https://vidsrc.cc/embed/${movieId}`; // Example URL structure
+    } else if (server === 'vidsrc.me') {
+        videoSrc = `https://vidsrc.me/embed/${movieId}`; // Example URL structure
+    } else if (server === 'player.videasy.net') {
+        videoSrc = `https://player.videasy.net/embed/${movieId}`; // Example URL structure
+    }
+    document.getElementById('modal-video').src = videoSrc;
+}
