@@ -14,13 +14,57 @@
     <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
 </head>
 <body>
-    <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
-            <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
-        </a>
-        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
-    </header>
+    <header style="background-color: #181818; /* Dark background */
+                   color: #ffffff; 
+                   padding: 12px 25px; 
+                   display: flex; 
+                   align-items: center; 
+                   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Example font */">
 
+        <a href="javascript:location.reload();" style="text-decoration: none; color: inherit; margin-right: 25px;">
+            <h1 style="margin: 0; font-size: 1.9em; font-weight: bold; line-height: 1;">
+                <span style="color: #8e44ad;">Movie</span><span id="title" style="color: #e84393;">143</span>
+            </h1>
+        </a>
+
+        <div class="search-wrapper" style="display: flex; align-items: center; background-color: #ffffff; border-radius: 4px; padding-left: 12px; margin-right: auto; /* Pushes nav links to the right */">
+            <input type="text" id="search-input" 
+                   placeholder="Search Movies" 
+                   oninput="searchTMDB()"
+                   style="border: none; 
+                          outline: none;
+                          font-size: 0.95em;
+                          height: 38px; 
+                          line-height: 38px;
+                          padding-right: 10px;
+                          background-color: transparent;
+                          color: #222222;" />
+            <button id="search-button" 
+                    title="Search"
+                    type="button" 
+                    style="background-color: #e50914; /* Red button */
+                           color: white; 
+                           border: none; 
+                           width: 50px; /* Width for the button */
+                           height: 38px;
+                           border-radius: 0 4px 4px 0; 
+                           cursor: pointer;
+                           display: flex; align-items: center; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 18px;">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+
+        <nav>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center;">
+                <li style="margin-left: 20px;"><a href="#" style="color: #e5e5e5; text-decoration: none; font-size: 1em; font-weight: 500; padding: 5px 0;">Home</a></li>
+                <li style="margin-left: 20px;"><a href="#" style="color: #e5e5e5; text-decoration: none; font-size: 1em; font-weight: 500; padding: 5px 0;">Movies</a></li>
+                <li style="margin-left: 20px;"><a href="#" style="color: #e5e5e5; text-decoration: none; font-size: 1em; font-weight: 500; padding: 5px 0;">TV Shows</a></li>
+                <li style="margin-left: 20px;"><a href="#" style="color: #e5e5e5; text-decoration: none; font-size: 1em; font-weight: 500; padding: 5px 0;">Animations</a></li>
+                </ul>
+        </nav>
+    </header>
     <section id="search-section">
         <h2>Search Results</h2>
         <div id="search-results"></div>
