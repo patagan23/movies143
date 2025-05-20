@@ -6,17 +6,17 @@
     <title>Movie143</title>
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
-/*]]>/* */
-</script>
+    /*<![CDATA[/* */
+    (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
+    /*]]>/* */
+    </script>
     
 </head>
 <body>
     <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
         <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
-  <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
-</a>
+            <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
+        </a>
         <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
     </header>
 
@@ -25,10 +25,12 @@
         <div id="search-results"></div>
     </section>
 
-
     <div id="banner">
         <div id="banner-title"></div>
-    </div>
+        <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: block; text-align: center; padding: 15px; background-color: #f0f0f0; margin: 15px 0; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd;">
+            ✨ Special Offer! Click Here for an Amazing Deal! ✨
+        </a>
+        </div>
 
     <section>
         <h2>Trending Movies</h2>
@@ -45,24 +47,24 @@
         <div id="anime-list"></div>
     </section>
 
-    <!-- Modal for details and video -->
     <div id="modal">
         <div id="modal-content">
-        <div id="modal-header">
-            <h2 id="modal-title"></h2>
-            <span id="modal-close" onclick="closeModal()">×</span>
-        </div>
-        <div id="modal-body">
-            <img id="modal-image" src="" alt="Poster" />
-            <div id="modal-details">
-            <div id="modal-rating"></div>
-            <div id="modal-overview"></div>
-            <select id="server" onchange="changeServer()">
-                <option value="vidsrc.cc">vidsrc.cc</option>
-                <option value="vidsrc.me">vidsrc.me</option>
-                <option value="player.videasy.net">player.videasy.net</option>
-            </select>
-            <iframe id="modal-video" allowfullscreen></iframe>
+            <div id="modal-header">
+                <h2 id="modal-title"></h2>
+                <span id="modal-close" onclick="closeModal()">×</span>
+            </div>
+            <div id="modal-body">
+                <img id="modal-image" src="" alt="Poster" />
+                <div id="modal-details">
+                    <div id="modal-rating"></div>
+                    <div id="modal-overview"></div>
+                    <select id="server" onchange="changeServer()">
+                        <option value="vidsrc.cc">vidsrc.cc</option>
+                        <option value="vidsrc.me">vidsrc.me</option>
+                        <option value="player.videasy.net">player.videasy.net</option>
+                    </select>
+                    <iframe id="modal-video" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
