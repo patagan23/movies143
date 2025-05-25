@@ -14,21 +14,45 @@
     <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
 </head>
 <body>
-    <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
-            <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
+    <header>
+        <a href="javascript:location.reload();" class="logo-link">
+            <h1 class="logo">Movie<span class="logo-accent">143</span></h1>
         </a>
-        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
+        <div class="search-area">
+            <input type="text" id="search-input" placeholder="Search Movies" oninput="searchTMDB()" />
+            <button id="search-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="main-nav">
+            <a href="#">Home</a>
+            <a href="#">Movies</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Animations</a>
+        </nav>
     </header>
+
+    <div id="banner-container">
+        <div class="banner-content-wrapper">
+            <h2>The Late Late Show with James Corden</h2>
+            <div class="banner-meta">
+                <span class="imdb-rating">IMDb: 8.29</span>
+                <span class="year">2015</span>
+                <span class="category-tag">TV Show</span>
+            </div>
+            <p class="banner-description">
+                Once Craig Ferguson retires, James Corden will be taking over The Late Late Show. The show is a late night talk show that interviews celebrities and has its own bits. And of course, it's all hosted by...
+            </p>
+            <a href="#" class="watch-now-btn">Watch Now</a>
+        </div>
+    </div>
 
     <section id="search-section">
         <h2>Search Results</h2>
         <div id="search-results"></div>
     </section>
-
-    <div id="banner">
-        <div id="banner-title"></div>
-    </div>
 
     <section>
         <h2>Trending Movies</h2>
@@ -69,9 +93,7 @@
 
     <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border-top: 1px solid #eee;">
         <h3 style="margin-bottom: 15px; color: #555;">Advertisements</h3>
-        
         <div id="container-a1ad8adc20f1f157342279802f8e7966" style="margin-bottom: 20px;"></div>
-        
         <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: inline-block; text-align: center; padding: 10px 15px; background-color: #f0f0f0; margin: 5px auto; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd; border-radius: 5px;">
             ✨ Special Offer! Click Here for an Amazing Deal! ✨
         </a>
