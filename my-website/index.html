@@ -5,6 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Movie143</title>
     <link rel="stylesheet" href="home.css" />
+    <style>
+        /* Basic body reset for better consistency */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* Example font */
+            background-color: #f4f4f4; /* Light background for content */
+        }
+
+        /* Styling for the search input placeholder text */
+        #search-input::placeholder {
+            color: #ccc; /* Light grey placeholder text */
+            opacity: 1; /* Firefox */
+        }
+        #search-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #ccc;
+        }
+        #search-input::-ms-input-placeholder { /* Microsoft Edge */
+            color: #ccc;
+        }
+
+        /* Banner specific styles */
+        #banner {
+            position: relative; /* For positioning banner title */
+            height: 450px; /* Adjust height as needed, e.g., 50vh for 50% of viewport height */
+            background-image: url('image_733e38.jpg'); /* <-- REPLACE THIS with your actual banner image URL */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex; /* To help position title if needed, though absolute positioning is used here */
+            align-items: flex-end; /* Aligns children (banner-title) to the bottom */
+        }
+
+        #banner-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 2em; /* Larger font size for the title */
+            font-weight: bold;
+            color: #fff; /* White text color */
+        }
+
+        /* Ensure sections below banner have some top margin if banner is very tall */
+        #search-section, section {
+            padding: 20px;
+            margin-top: 10px; /* Adjust as needed */
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
     <script type="text/javascript" data-cfasync="false">
     /*<![CDATA[/* */
     (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
@@ -14,11 +67,11 @@
     <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
 </head>
 <body>
-    <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <header style="background-color: #1C1C1C; /* Dark background for navbar */ padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
         <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
-            <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
+            <h1 style="margin: 0; color: red; font-size: 1.8em;">Movie<span id="title">143</span></h1>
         </a>
-        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
+        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" style="padding: 10px 15px; background-color: #333; border: 1px solid #555; color: white; border-radius: 4px; width: 300px; font-size: 0.9em;" />
     </header>
 
     <section id="search-section">
@@ -27,7 +80,7 @@
     </section>
 
     <div id="banner">
-        <div id="banner-title"></div>
+        <div id="banner-title">Jurassic World Rebirth</div>
     </div>
 
     <section>
