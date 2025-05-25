@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Movie143</title>
+    <title>Movie143 - Debugging Merge</title>
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+        body {
+            background-color: white !important; /* Force a white background */
+            color: black !important; /* Force black text */
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        /* Force visibility on common text-holding elements */
+        h1, h2, h3, p, div, span, a, header, section {
+            color: black !important;
+            background-color: transparent !important; /* Ensure no black backgrounds are hiding text */
+        }
+        /* If elements are hidden by display:none in style.css, this won't override that for specific elements
+           but it ensures if they are displayed, their color should be visible. */
+    </style>
+
     <script type="text/javascript" data-cfasync="false">
     /*<![CDATA[/* */
     (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
@@ -14,39 +31,44 @@
     <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
 </head>
 <body>
-    <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <div style="border: 2px dashed red; padding: 10px; margin-bottom: 20px;">
+        <h1>TEST: Can you see this heading on a white background?</h1>
+        <p>If you see this, basic HTML and the inline debug styles are working. The problem might be with `style.css` (if it overrides these !important styles or hides elements) or a JavaScript error, or an ad script overlay.</p>
+    </div>
+    <hr>
+
+    <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid lightgray;">
         <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
             <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
         </a>
-        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
+        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" style="border: 1px solid black;" />
     </header>
 
     <section id="search-section">
         <h2>Search Results</h2>
-        <div id="search-results"></div>
+        <div id="search-results">Placeholder: Search results should appear here.</div>
     </section>
 
     <div id="banner">
-        <div id="banner-title"></div>
+        <div id="banner-title">Placeholder: Banner title should be here.</div>
     </div>
 
     <section>
         <h2>Trending Movies</h2>
-        <div id="movies-list"></div>
+        <div id="movies-list">Placeholder: Movies list should be here.</div>
     </section>
 
     <section>
         <h2>Trending TV Shows</h2>
-        <div id="tvshows-list"></div>
+        <div id="tvshows-list">Placeholder: TV shows list should be here.</div>
     </section>
 
     <section>
         <h2>Trending Anime (Japanese)</h2>
-        <div id="anime-list"></div>
+        <div id="anime-list">Placeholder: Anime list should be here.</div>
     </section>
 
-    <div id="modal">
-        <div id="modal-content">
+    <div id="modal" style="display:none;"> <div id="modal-content">
             <div id="modal-header">
                 <h2 id="modal-title"></h2>
                 <span id="modal-close" onclick="closeModal()">×</span>
@@ -67,15 +89,14 @@
         </div>
     </div>
 
-    <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border-top: 1px solid #eee;">
-        <h3 style="margin-bottom: 15px; color: #555;">Advertisements</h3>
-        
+    <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border: 1px solid lightgray;">
+        <h3 style="margin-bottom: 15px; color: #555;">Advertisements Area</h3>
         <div id="container-a1ad8adc20f1f157342279802f8e7966" style="margin-bottom: 20px;"></div>
-        
         <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: inline-block; text-align: center; padding: 10px 15px; background-color: #f0f0f0; margin: 5px auto; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd; border-radius: 5px;">
             ✨ Special Offer! Click Here for an Amazing Deal! ✨
         </a>
     </div>
+
     <script src="home.js"></script>
 </body>
 </html>
