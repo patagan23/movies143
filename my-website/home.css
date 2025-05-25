@@ -6,6 +6,13 @@ body {
     padding: 0;
 }
 
+/* General responsive image rule */
+img {
+    max-width: 100%; /* Ensures images don't overflow their containers */
+    height: auto;    /* Maintains aspect ratio by default */
+    display: block;  /* Removes extra space below inline images */
+}
+
 #banner {
     height: 300px;
     background-size: cover;
@@ -16,124 +23,165 @@ body {
     font-size: 2em;
     font-weight: bold;
     box-shadow: inset 0 -60px 60px -20px rgba(0,0,0,0.8);
+    /* Add a fallback background color or actual background-image property here */
+    /* e.g., background-image: url('your-banner-image.jpg'); */
 }
 
 section {
     margin: 20px;
 }
 
-h2 {
-    margin-bottom: 10px;
+h2 { /* Main section headings */
+    margin-top: 0; /* Common practice to remove top margin from section headings */
+    margin-bottom: 15px; /* Increased slightly for better spacing */
 }
 
-h1 {
-    color:rgb(217, 17, 224);
+h1 { /* Typically used for the main site logo/title */
+    color: rgb(217, 17, 224); /* Magenta/purple for the main part of H1 */
+    margin: 0; /* Assuming this is for a logo, remove default margins */
 }
 
-h1 #title {
-    color: red
+/* If you have a specific part of the H1 with id="title" for a different color */
+h1 #title { /* Targets an element with id="title" INSIDE an h1 */
+    color: red;
 }
 
 #search-section {
-    display: none;
+    display: none; /* Remains hidden by default */
     margin: 20px;
 }
 
-/* Use grid layout for movie lists */
-#movies-list, #tvshows-list, #anime-list, #search-results {
+/* Grid layout for content lists */
+#movies-list,
+#tvshows-list,
+#anime-list,
+#search-results {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates responsive columns */
+    gap: 20px; /* Increased gap for better visual separation */
 }
 
-/* Adjust image sizes in grid */
-#movies-list img, #tvshows-list img, #anime-list img, #search-results img {
-    height: auto;
-    width: 100%;
+/*
+   Styling for specific poster images within lists.
+   For this to work, your JavaScript (home.js) needs to ensure
+   that <img> tags for movies, TV shows, anime, and search results
+   have the class "movie-poster-class".
+*/
+.movie-poster-class {
+    width: 100%; /* Make poster take full width of its grid cell */
+    height: 225px; /* Fixed height for uniform posters, adjust as needed */
+    object-fit: cover; /* Scales image to maintain aspect ratio while filling dimensions */
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in-out; /* Keep a subtle transition */
 }
 
-/* Disable zoom effect on hover */
-#movies-list img:hover, #tvshows-list img:hover, #anime-list img:hover, #search-results img:hover {
-    transform: none;
+/*
+   Hover effect for posters.
+   If you want no zoom, transform: none is fine.
+   If you want a slight zoom, use transform: scale(1.05); for example.
+*/
+.movie-poster-class:hover {
+    transform: scale(1.03); /* Example: slight scale on hover */
+    /* transform: none; */ /* Uncomment this if you want absolutely no transform on hover */
 }
+
 
 /* Modal styles */
-#modal, #search-modal {
-    display: none;
+#modal, #search-modal { /* Combined selectors for shared properties */
+    display: none; /* Hidden by default */
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85); /* Slightly darker overlay */
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 20px; /* Add some padding for smaller viewports */
+    box-sizing: border-box;
 }
 
 #modal-content, #search-modal-content {
-    background: #222;
-    padding: 20px;
+    background: #1e1e1e; /* Slightly lighter dark for modal content */
+    padding: 25px;
     border-radius: 8px;
-    width: 90%;
-    max-width: 900px;
+    width: 100%; /* Take full width of padded modal overlay */
+    max-width: 800px; /* Reduced max-width for better readability on large screens */
     max-height: 90vh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
 #modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #333; /* Add a separator */
+    padding-bottom: 15px; /* Space below header */
+    margin-bottom: 15px; /* Space above body */
 }
 
 #modal-close, #search-close {
     cursor: pointer;
-    font-size: 1.5em;
-    color: #bbb;
+    font-size: 1.8em; /* Larger close button */
+    color: #aaa; /* Lighter grey */
     font-weight: bold;
+    line-height: 1; /* Ensure it doesn't take too much vertical space */
 }
+#modal-close:hover, #search-close:hover {
+    color: #fff;
+}
+
 
 #modal-body {
     display: flex;
-    margin-top: 10px;
-    gap: 20px;
-    flex-wrap: wrap;
+    /* margin-top: 10px; Removed as header now has margin-bottom */
+    gap: 25px; /* Increased gap */
+    flex-wrap: wrap; /* Allow wrapping for smaller modal widths */
 }
 
 #modal-image {
-    max-width: 200px;
+    /* max-width: 200px; /* This could be restrictive if the modal is wide */
+    width: 100%; /* Make it responsive within its flex container */
+    max-width: 220px; /* But cap it at a reasonable poster size */
+    height: auto;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 #modal-details {
     flex: 1;
+    min-width: 250px; /* Ensure details have some space even when wrapped */
     display: flex;
     flex-direction: column;
 }
 
 #modal-rating {
     color: gold;
-    margin: 5px 0;
+    margin: 5px 0 10px 0; /* Adjusted margin */
     font-size: 1.2em;
+    font-weight: bold;
 }
 
 #modal-overview {
-    margin-top: 10px;
+    /* margin-top: 10px; Removed, rely on gap from flex container */
     color: #ccc;
-    font-size: 0.9em;
-    overflow: hidden;
+    font-size: 0.95em; /* Slightly larger for readability */
+    line-height: 1.6; /* Better line spacing */
+    /* Text truncation (optional, if you want to limit lines) */
+    /* overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* Show 4 lines */
+    /* -webkit-box-orient: vertical; */
 }
 
 #modal-video {
     margin-top: 15px;
     width: 100%;
-    height: 400px;
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+    height: auto; /* Adjust height based on aspect ratio */
+    max-height: 450px; /* Max height for the video */
     border-radius: 8px;
     background: black;
     border: none;
@@ -141,49 +189,43 @@ h1 #title {
 
 /* Server selection */
 #server {
-    margin-top: 10px;
-    padding: 5px;
+    margin-top: 15px; /* Increased margin */
+    padding: 8px 10px; /* Better padding */
     background: #333;
     color: white;
-    border: none;
+    border: 1px solid #444; /* Subtle border */
     border-radius: 4px;
-    width: 200px;
+    width: auto; /* Adjust width based on content or set a specific one */
+    min-width: 180px;
+    font-size: 0.9em;
 }
 
-/* Search modal */
-#search-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
-
-/* Search input styling */
+/* Search input styling (Consolidated) */
+/* This rule applies to the general search input, likely in your header */
+/* If #search-input is also used for the modal, these styles will apply there too. */
+/* Consider using a more specific selector if needed, e.g., header #search-input */
 #search-input {
     padding: 10px 15px;
     font-size: 1em;
-    border-radius: 8px;
-    border: none;
-    width: 300px;
+    border-radius: 5px; /* Consistent with other inputs */
+    border: 1px solid #444; /* Subtle border */
+    /* width: 300px; /* Width might be better controlled by its container or specific context */
     max-width: 100%;
-    background: #222;
+    background: #2c2c2c; /* Darker input background */
     color: white;
     outline: none;
+    box-sizing: border-box; /* Ensure padding doesn't increase overall size */
+}
+#search-input::placeholder {
+    color: #888;
 }
 
-#search-results img {
-    height: 150px;
-    width: auto;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
 
-.episodes-grid {
-    display: flex;
+.episodes-grid { /* Assuming this is for displaying episodes */
+    display: flex; /* Or grid, depending on desired layout */
     flex-wrap: wrap;
     gap: 10px;
+    margin-top: 15px;
 }
+/* Add styles for individual episode items if needed */
+/* .episode-item { ... } */
