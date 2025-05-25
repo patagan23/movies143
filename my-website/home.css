@@ -1,364 +1,377 @@
-/* General Reset and Base Styles */
 body {
-    background-color: #0D1117; /* Very dark base background */
-    color: #c9d1d9; /* Light grey text for readability on dark backgrounds */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+
+    background: #121212;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+
+    padding: 0;
+
 }
 
-/* Header Styles */
-header {
-    background-color: #010409; /* Almost black, very dark header */
-    padding: 10px 0; /* Reduced vertical padding */
-    position: sticky;
-    top: 0;
-    z-index: 100; /* Keep header above other content */
-    border-bottom: 1px solid #21262d; /* Subtle border */
-}
 
-.header-content {
-    width: 90%;
-    max-width: 1200px; /* Max width for content within header */
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.site-logo {
-    margin: 0;
-    font-size: 1.8em; /* Slightly smaller logo */
-    color: #f0f6fc; /* Whiteish logo text */
-    font-weight: bold;
-}
-
-.logo-accent {
-    color: #E30A17; /* Bright red accent */
-}
-
-#search-input {
-    padding: 8px 12px;
-    font-size: 0.9em;
-    border-radius: 6px;
-    border: 1px solid #30363d;
-    background-color: #0D1117; /* Dark background for input */
-    color: #f0f6fc;
-    width: 250px; /* Adjust as needed */
-    outline: none;
-}
-
-#search-input:focus {
-    border-color: #E30A17; /* Red border on focus */
-    box-shadow: 0 0 0 2px rgba(227, 10, 23, 0.3);
-}
-
-/* Banner Styles */
 #banner {
-    height: 65vh; /* Adjust height as needed */
-    background-size: cover;
-    background-position: center center; /* Default, JS will override image */
-    position: relative;
-    display: flex;
-    align-items: flex-end; /* Align content to the bottom-left */
-    padding: 40px;
-    box-sizing: border-box;
+
+    height: 300px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 20px;
+
+    font-size: 2em;
+
+    font-weight: bold;
+
+    box-shadow: inset 0 -60px 60px -20px rgba(0,0,0,0.8);
+
 }
 
-.banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(13, 17, 23, 0.9) 0%, rgba(13, 17, 23, 0.6) 30%, rgba(13, 17, 23, 0) 70%);
-    /* Darker gradient from bottom, fading upwards */
+
+
+section {
+
+    margin: 20px;
+
 }
 
-.banner-content {
-    position: relative; /* Above the overlay */
-    z-index: 1;
-    color: #fff;
-    max-width: 50%; /* Limit width of text content */
+
+
+h2 {
+
+    margin-bottom: 10px;
+
 }
 
-#banner-title {
-    font-size: 2.8em;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+
+
+h1 {
+
+    color:rgb(217, 17, 224);
+
 }
 
-.banner-button {
-    background-color: #E30A17; /* Red button */
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    display: inline-block;
+
+
+h1 #title {
+
+    color: red
+
 }
 
-.banner-button:hover {
-    background-color: #c0010e; /* Darker red on hover */
-}
 
-/* Main Content Area (for poster rows) */
-main {
-    background-color: #161b22; /* Dark blue-grey for content sections */
-    padding: 20px 0; /* Add some padding around the sections */
-}
 
-/* Section and Content Row Styles */
-.content-category, #search-section {
-    margin-bottom: 30px;
-    padding: 0 40px; /* Padding for the section container */
-}
-
-.content-category h2, #search-section h2 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    color: #f0f6fc;
-    text-align: left; /* Align section titles to the left as per example */
-    /* If centered is preferred like the image: text-align: center; */
-}
-
-.content-row {
-    display: flex;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide vertical scrollbar if any */
-    padding-bottom: 15px; /* Space for scrollbar without cutting off posters */
-    gap: 15px; /* Space between posters */
-}
-
-/* Scrollbar styling (WebKit browsers like Chrome, Safari) */
-.content-row::-webkit-scrollbar {
-    height: 8px;
-}
-
-.content-row::-webkit-scrollbar-track {
-    background: #0d1117; /* Dark track */
-    border-radius: 4px;
-}
-
-.content-row::-webkit-scrollbar-thumb {
-    background: #30363d; /* Greyish thumb */
-    border-radius: 4px;
-}
-
-.content-row::-webkit-scrollbar-thumb:hover {
-    background: #586069; /* Lighter thumb on hover */
-}
-
-.content-row img {
-    height: 250px; /* Fixed height for posters */
-    width: auto;   /* Auto width to maintain aspect ratio */
-    /* Or use fixed width and auto height: */
-    /* width: 170px; */
-    /* height: auto; */
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    object-fit: cover; /* Ensure image covers the dimensions */
-}
-
-.content-row img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-
-/* Search Results Section Specifics */
 #search-section {
-    display: none; /* Initially hidden, JS will show it */
-    background-color: #0D1117; /* Match body background for search section before results */
-    padding-top: 20px;
-    padding-bottom: 20px;
+
+    display: none;
+
+    margin: 20px;
+
 }
 
-/* Modal Styles (adjusting to new theme) */
-#modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(13, 17, 23, 0.85); /* Darker overlay */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+
+
+/* Use grid layout for movie lists */
+
+#movies-list, #tvshows-list, #anime-list, #search-results {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+    gap: 15px;
+
 }
 
-#modal-content {
-    background: #161b22; /* Dark modal background */
-    padding: 25px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 800px; /* Adjusted max-width */
-    max-height: 90vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #30363d;
+
+
+/* Adjust image sizes in grid */
+
+#movies-list img, #tvshows-list img, #anime-list img, #search-results img {
+
+    height: auto;
+
+    width: 100%;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+
 }
+
+
+
+/* Disable zoom effect on hover */
+
+#movies-list img:hover, #tvshows-list img:hover, #anime-list img:hover, #search-results img:hover {
+
+    transform: none;
+
+}
+
+
+
+/* Modal styles */
+
+#modal, #search-modal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0; left: 0; right: 0; bottom: 0;
+
+    background: rgba(0,0,0,0.8);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+
+
+#modal-content, #search-modal-content {
+
+    background: #222;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    width: 90%;
+
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
 
 #modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #30363d;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
 }
 
-#modal-title {
-    font-size: 1.8em;
-    color: #f0f6fc;
+
+
+#modal-close, #search-close {
+
+    cursor: pointer;
+
+    font-size: 1.5em;
+
+    color: #bbb;
+
+    font-weight: bold;
+
 }
 
-#modal-close {
-    cursor: pointer;
-    font-size: 1.8em;
-    color: #8b949e; /* Grey close button */
-    font-weight: bold;
-    line-height: 1;
-}
-#modal-close:hover {
-    color: #f0f6fc;
-}
+
 
 #modal-body {
-    display: flex;
-    margin-top: 10px;
-    gap: 25px;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens if needed */
+
+    display: flex;
+
+    margin-top: 10px;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
 }
+
+
 
 #modal-image {
-    max-width: 220px; /* Slightly larger modal poster */
-    height: auto;
-    border-radius: 6px;
-    object-fit: contain;
+
+    max-width: 200px;
+
+    border-radius: 5px;
+
 }
+
+
 
 #modal-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 300px; /* Prevent details from getting too squished */
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
 }
+
+
 
 #modal-rating {
-    color: gold;
-    margin: 5px 0 10px 0;
-    font-size: 1.2em;
+
+    color: gold;
+
+    margin: 5px 0;
+
+    font-size: 1.2em;
+
 }
+
+
 
 #modal-overview {
-    margin-top: 10px;
-    color: #c9d1d9;
-    font-size: 0.95em;
-    line-height: 1.6;
-    max-height: 150px; /* Limit overview height */
-    overflow-y: auto; /* Scroll for longer overviews */
-    padding-right: 10px; /* Space for scrollbar */
+
+    margin-top: 10px;
+
+    color: #ccc;
+
+    font-size: 0.9em;
+
+    overflow: hidden;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 4;
+
+    -webkit-box-orient: vertical;
+
 }
 
-#server {
-    margin-top: 15px;
-    padding: 8px 10px;
-    background: #0D1117;
-    color: #f0f6fc;
-    border: 1px solid #30363d;
-    border-radius: 4px;
-    width: 200px;
-    font-size: 0.9em;
-}
+
 
 #modal-video {
-    margin-top: 15px;
-    width: 100%;
-    height: 400px; /* Adjust as needed */
-    border-radius: 6px;
-    background: black;
-    border: 1px solid #30363d;
+
+    margin-top: 15px;
+
+    width: 100%;
+
+    height: 400px;
+
+    border-radius: 8px;
+
+    background: black;
+
+    border: none;
+
 }
 
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .header-content {
-        width: 95%;
-        flex-direction: column;
-        gap: 10px;
-    }
-    #search-input {
-        width: 80%;
-    }
-    #banner {
-        height: 50vh;
-        padding: 20px;
-    }
-    .banner-content {
-        max-width: 80%;
-    }
-    #banner-title {
-        font-size: 2em;
-    }
-    .banner-button {
-        padding: 8px 16px;
-        font-size: 0.9em;
-    }
-    .content-category, #search-section {
-        padding: 0 20px;
-    }
-    .content-category h2, #search-section h2 {
-        font-size: 1.3em;
-    }
-    .content-row img {
-        height: 200px;
-    }
-    #modal-body {
-        flex-direction: column;
-        align-items: center;
-    }
-    #modal-image {
-        max-width: 180px;
-    }
-    #modal-details {
-        min-width: auto;
-        width: 100%;
-    }
-    #modal-video {
-        height: 300px;
-    }
+
+/* Server selection */
+
+#server {
+
+    margin-top: 10px;
+
+    padding: 5px;
+
+    background: #333;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    width: 200px;
+
 }
 
-@media (max-width: 480px) {
-    .site-logo {
-        font-size: 1.5em;
-    }
-    #search-input {
-        width: 90%;
-        font-size: 0.8em;
-    }
-    #banner-title {
-        font-size: 1.6em;
-    }
-    .content-row img {
-        height: 180px;
-        gap: 10px;
-    }
-    #modal-content {
-        padding: 15px;
-    }
-    #modal-title {
-        font-size: 1.5em;
-    }
-    #modal-image {
-        max-width: 150px;
-    }
-    #modal-video {
-        height: 250px;
-    }
+
+
+/* Search modal */
+
+#search-input {
+
+    width: 100%;
+
+    padding: 10px;
+
+    font-size: 1em;
+
+    border-radius: 5px;
+
+    border: none;
+
+    margin-bottom: 15px;
+
+    box-sizing: border-box;
+
+}
+
+
+
+/* Search input styling */
+
+#search-input {
+
+    padding: 10px 15px;
+
+    font-size: 1em;
+
+    border-radius: 8px;
+
+    border: none;
+
+    width: 300px;
+
+    max-width: 100%;
+
+    background: #222;
+
+    color: white;
+
+    outline: none;
+
+}
+
+
+
+#search-results img {
+
+    height: 150px;
+
+    width: auto;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+
+}
+
+
+
+.episodes-grid {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
 }
