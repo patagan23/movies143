@@ -10,200 +10,72 @@
     (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
     /*]]>/* */
     </script>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0b101c; /* Dark blueish background from new image */
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px; /* Increased padding to match example */
-            background-color: #101010;
-            border-bottom: 1px solid #222;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-sizing: border-box;
-        }
-
-        header .logo a { text-decoration: none; color: #e50914; }
-        header .logo h1 { margin: 0; font-size: 1.8em; }
-        header .logo #title { color: #f5f5f1; }
-        header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
-        header nav ul li { margin-left: 20px; }
-        header nav ul li a { text-decoration: none; color: #f5f5f1; font-size: 0.9em; }
-        header nav ul li a:hover { color: #b3b3b3; }
-        .header-right { display: flex; align-items: center; }
-        .search-container { display: flex; align-items: center; background-color: #222; border: 1px solid #333; border-radius: 4px; padding: 5px 8px; margin-right: 20px; }
-        .search-container .search-icon { color: #e50914; margin-right: 5px; cursor: pointer; }
-        #search-input { background-color: transparent; border: none; color: #fff; outline: none; font-size: 0.9em; }
-        #search-input::placeholder { color: #888; }
-
-        #banner {
-            width: 100%;
-            height: 65vh;
-            background-image: url('https://image.tmdb.org/t/p/original/pathToYourBannerImage.jpg'); /* <<< REPLACE THIS */
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: flex-end;
-            padding: 0;
-            position: relative;
-            margin-top: 60px; /* Adjust if header height changes */
-            box-sizing: border-box;
-        }
-        #banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.1) 60%, transparent 100%); z-index: 1; }
-        .banner-content { position: relative; z-index: 2; color: #fff; padding: 30px 40px; max-width: 50%; }
-        .banner-content h2 { font-size: 2.5em; margin: 0 0 10px 0; font-weight: bold; }
-        .banner-content .meta { font-size: 0.9em; margin-bottom: 15px; color: #c0c0c0; }
-        .banner-content .meta span { margin-right: 15px; }
-        .banner-content .description { font-size: 1em; margin-bottom: 20px; line-height: 1.5; max-width: 600px; }
-        .watch-now-btn { background-color: #e50914; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 1em; border: none; cursor: pointer; }
-        .watch-now-btn:hover { background-color: #f40612; }
-
-        /* Styling for Row Titles (like Trending, Popular) */
-        .content-row-title {
-            display: flex;
-            align-items: center;
-            padding: 20px 40px 10px 40px; /* Padding around the title area */
-        }
-        .content-row-title h2 {
-            margin: 0;
-            font-size: 1.6em; /* Prominent title */
-            color: #fff;
-            margin-right: 20px;
-        }
-        .content-row-title nav a {
-            color: #a9b7c9;
-            text-decoration: none;
-            margin-right: 15px;
-            font-size: 0.9em;
-            padding-bottom: 3px;
-        }
-        .content-row-title nav a.active,
-        .content-row-title nav a:hover {
-            color: #fff;
-            border-bottom: 2px solid #e50914; /* Red underline for active/hover */
-        }
-        
-        /* Sections containing the carousels */
-        section.movie-carousel-section {
-            padding: 0px 40px 30px 40px; /* Padding for the carousel itself */
-            /* background-color: #0b101c; /* Ensured by body */
-        }
-
-        /* Container for horizontally scrolling movie lists */
-        .movie-list-scrollable {
-            display: flex;
-            overflow-x: auto;
-            overflow-y: hidden; /* Hide vertical scrollbar if any */
-            padding-bottom: 15px; /* Space for scrollbar if it appears outside */
-            gap: 12px; /* Space between movie items */
-        }
-        /* Hide scrollbar for a cleaner look (Webkit browsers) */
-        .movie-list-scrollable::-webkit-scrollbar {
-            height: 8px;
-        }
-        .movie-list-scrollable::-webkit-scrollbar-track {
-            background: #1f2937; /* Or transparent */
-            border-radius: 4px;
-        }
-        .movie-list-scrollable::-webkit-scrollbar-thumb {
-            background: #4b5563;
-            border-radius: 4px;
-        }
-        .movie-list-scrollable::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
-        }
-
-
-        /* Styling for individual movie items (posters) */
-        /* Assuming your home.js generates <a><img /></a> per movie */
-        .movie-list-scrollable a {
-            display: block;
-            text-decoration: none;
-        }
-        .movie-list-scrollable img {
-            width: 150px; /* Adjust width as desired */
-            height: auto; /* Maintain aspect ratio */
-            /* Or fixed height: height: 225px; object-fit: cover; */
-            border-radius: 4px; /* Slight rounding of corners */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .movie-list-scrollable img:hover {
-            transform: scale(1.05); /* Slight zoom on hover */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-
-        #search-section { /* This section is for search results, may not be a carousel */
-            padding: 20px 40px;
-        }
-        #search-section h2 {
-            color: #f5f5f1; margin-top: 0; margin-bottom: 20px; font-size: 1.4em;
-        }
-        #search-results { /* Style search results as cards or list */
-            display: flex; flex-wrap: wrap; gap: 15px;
-        }
-
-
-        /* Modal styles */
-        #modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7); }
-        #modal-content { background-color: #181818; margin: 5% auto; padding: 20px; border: 1px solid #333; width: 80%; max-width: 800px; color: #fff; border-radius: 5px; position: relative; }
-        #modal-header { display:flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; }
-        #modal-title { margin: 0; font-size: 1.8em; }
-        #modal-close { color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; }
-        #modal-close:hover, #modal-close:focus { color: #fff; }
-        #modal-body { display: flex; gap: 20px; flex-wrap: wrap; /* For responsiveness */ }
-        #modal-image { max-width: 100%; width:200px; /* Fixed width for poster */ height: auto; border-radius: 4px;}
-        #modal-details { flex-grow: 1; min-width: 250px; /* Ensure details don't get too squished */ }
-        #modal-rating, #modal-overview { margin-bottom: 10px; }
-        #server { background-color: #333; color: white; padding: 8px; border-radius: 4px; border: 1px solid #555; margin-bottom: 10px; display: block; width: 100%; }
-        #modal-video { width: 100%; height: 350px; border: none; margin-top:10px;}
-
-    </style>
+    <script type='text/javascript' src='//pl26690846.profitableratecpm.com/9b/1b/cb/9b1bcbbec62afce68d1aaa44fb750ff2.js'></script>
+    <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="javascript:location.reload();"><h1>Movie<span id="title">143</span></h1></a>
-        </div>
-        <div class="header-right">
-            <div class="search-container">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="search-input" placeholder="Search..." oninput="searchTMDB()" />
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">TV Shows</a></li>
-                    <li><a href="#">Animations</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
+            <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
+        </a>
+        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
     </header>
 
+    <section id="search-section">
+        <h2>Search Results</h2>
+        <div id="search-results"></div>
+    </section>
+
     <div id="banner">
-        <div class="banner-content">
-            <h2>A Working Man</h2>
-            <div class="meta">
-                <span>IMDb: 6.6</span>
-                <span>2025</span>
-                <span>Movie</span>
+        <div id="banner-title"></div>
+    </div>
+
+    <section>
+        <h2>Trending Movies</h2>
+        <div id="movies-list"></div>
+    </section>
+
+    <section>
+        <h2>Trending TV Shows</h2>
+        <div id="tvshows-list"></div>
+    </section>
+
+    <section>
+        <h2>Trending Anime (Japanese)</h2>
+        <div id="anime-list"></div>
+    </section>
+
+    <div id="modal">
+        <div id="modal-content">
+            <div id="modal-header">
+                <h2 id="modal-title"></h2>
+                <span id="modal-close" onclick="closeModal()">×</span>
             </div>
-            <p class="description">
-                Levon Cade left behind a decorated military career...
-            </p>
-            <button
+            <div id="modal-body">
+                <img id="modal-image" src="" alt="Poster" />
+                <div id="modal-details">
+                    <div id="modal-rating"></div>
+                    <div id="modal-overview"></div>
+                    <select id="server" onchange="changeServer()">
+                        <option value="vidsrc.cc">vidsrc.cc</option>
+                        <option value="vidsrc.me">vidsrc.me</option>
+                        <option value="player.videasy.net">player.videasy.net</option>
+                    </select>
+                    <iframe id="modal-video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border-top: 1px solid #eee;">
+        <h3 style="margin-bottom: 15px; color: #555;">Advertisements</h3>
+        
+        <div id="container-a1ad8adc20f1f157342279802f8e7966" style="margin-bottom: 20px;"></div>
+        
+        <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: inline-block; text-align: center; padding: 10px 15px; background-color: #f0f0f0; margin: 5px auto; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd; border-radius: 5px;">
+            ✨ Special Offer! Click Here for an Amazing Deal! ✨
+        </a>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>
