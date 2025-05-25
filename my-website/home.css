@@ -1,6 +1,4 @@
-
-    padding: 0;
-
+body {
     background: #121212;
     color: white;
     font-family: Arial, sans-serif;
@@ -8,11 +6,7 @@
     padding: 0;
 }
 
-
-@@ -34,6 +39,15 @@ body {
-
-    box-shadow: inset 0 -60px 60px -20px rgba(0,0,0,0.8);
-
+#banner {
     height: 300px;
     background-size: cover;
     background-position: center;
@@ -24,62 +18,36 @@
     box-shadow: inset 0 -60px 60px -20px rgba(0,0,0,0.8);
 }
 
-
-@@ -42,6 +56,7 @@ section {
-
-    margin: 20px;
-
+section {
     margin: 20px;
 }
 
-
-@@ -50,6 +65,7 @@ h2 {
-
-    margin-bottom: 10px;
-
+h2 {
     margin-bottom: 10px;
 }
 
-
-@@ -58,6 +74,7 @@ h1 {
-
-    color:rgb(217, 17, 224);
-
+h1 {
     color:rgb(217, 17, 224);
 }
 
-
-@@ -66,6 +83,7 @@ h1 #title {
-
-    color: red
-
+h1 #title {
     color: red
 }
 
-
-@@ -76,6 +94,8 @@ h1 #title {
-
-    margin: 20px;
-
+#search-section {
     display: none;
     margin: 20px;
 }
 
-
-@@ -90,6 +110,9 @@ h1 #title {
-
-    gap: 15px;
-
+/* Use grid layout for movie lists */
+#movies-list, #tvshows-list, #anime-list, #search-results {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 15px;
 }
 
-
-@@ -108,6 +131,11 @@ h1 #title {
-
-    transition: transform 0.2s;
-
+/* Adjust image sizes in grid */
+#movies-list img, #tvshows-list img, #anime-list img, #search-results img {
     height: auto;
     width: 100%;
     border-radius: 5px;
@@ -87,19 +55,13 @@
     transition: transform 0.2s;
 }
 
-
-@@ -118,6 +146,7 @@ h1 #title {
-
-    transform: none;
-
+/* Disable zoom effect on hover */
+#movies-list img:hover, #tvshows-list img:hover, #anime-list img:hover, #search-results img:hover {
     transform: none;
 }
 
-
-@@ -140,6 +169,13 @@ h1 #title {
-
-    z-index: 1000;
-
+/* Modal styles */
+#modal, #search-modal {
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -109,11 +71,7 @@
     z-index: 1000;
 }
 
-
-@@ -164,6 +200,15 @@ h1 #title {
-
-    flex-direction: column;
-
+#modal-content, #search-modal-content {
     background: #222;
     padding: 20px;
     border-radius: 8px;
@@ -125,72 +83,44 @@
     flex-direction: column;
 }
 
-
-@@ -176,6 +221,9 @@ h1 #title {
-
-    align-items: center;
-
+#modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
-@@ -190,6 +238,10 @@ h1 #title {
-
-    font-weight: bold;
-
+#modal-close, #search-close {
     cursor: pointer;
     font-size: 1.5em;
     color: #bbb;
     font-weight: bold;
 }
 
-
-@@ -204,6 +256,10 @@ h1 #title {
-
-    flex-wrap: wrap;
-
+#modal-body {
     display: flex;
     margin-top: 10px;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-
-@@ -214,6 +270,8 @@ h1 #title {
-
-    border-radius: 5px;
-
+#modal-image {
     max-width: 200px;
     border-radius: 5px;
 }
 
-
-@@ -226,6 +284,9 @@ h1 #title {
-
-    flex-direction: column;
-
+#modal-details {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-
-@@ -238,6 +299,9 @@ h1 #title {
-
-    font-size: 1.2em;
-
+#modal-rating {
     color: gold;
     margin: 5px 0;
     font-size: 1.2em;
 }
 
-
-@@ -258,6 +322,13 @@ h1 #title {
-
-    -webkit-box-orient: vertical;
-
+#modal-overview {
     margin-top: 10px;
     color: #ccc;
     font-size: 0.9em;
@@ -200,11 +130,7 @@
     -webkit-box-orient: vertical;
 }
 
-
-@@ -276,6 +347,12 @@ h1 #title {
-
-    border: none;
-
+#modal-video {
     margin-top: 15px;
     width: 100%;
     height: 400px;
@@ -213,11 +139,8 @@
     border: none;
 }
 
-
-@@ -298,6 +375,13 @@ h1 #title {
-
-    width: 200px;
-
+/* Server selection */
+#server {
     margin-top: 10px;
     padding: 5px;
     background: #333;
@@ -227,11 +150,8 @@
     width: 200px;
 }
 
-
-@@ -320,6 +404,13 @@ h1 #title {
-
-    box-sizing: border-box;
-
+/* Search modal */
+#search-input {
     width: 100%;
     padding: 10px;
     font-size: 1em;
@@ -241,11 +161,8 @@
     box-sizing: border-box;
 }
 
-
-@@ -346,6 +437,15 @@ h1 #title {
-
-    outline: none;
-
+/* Search input styling */
+#search-input {
     padding: 10px 15px;
     font-size: 1em;
     border-radius: 8px;
@@ -257,11 +174,7 @@
     outline: none;
 }
 
-
-@@ -362,6 +462,11 @@ h1 #title {
-
-    transition: transform 0.2s;
-
+#search-results img {
     height: 150px;
     width: auto;
     border-radius: 5px;
@@ -269,11 +182,7 @@
     transition: transform 0.2s;
 }
 
-
-@@ -374,4 +479,7 @@ h1 #title {
-
-    gap: 10px;
-
+.episodes-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
