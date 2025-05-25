@@ -1,189 +1,134 @@
-body {
-    background: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Movie143</title>
+    <link rel="stylesheet" href="home.css" />
+    <style>
+        /* Basic body reset for better consistency */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* Example font */
+            background-color: #f4f4f4; /* Light background for content */
+        }
 
-#banner {
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-    font-size: 2em;
-    font-weight: bold;
-    box-shadow: inset 0 -60px 60px -20px rgba(0,0,0,0.8);
-}
+        /* Styling for the search input placeholder text */
+        #search-input::placeholder {
+            color: #ccc; /* Light grey placeholder text */
+            opacity: 1; /* Firefox */
+        }
+        #search-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #ccc;
+        }
+        #search-input::-ms-input-placeholder { /* Microsoft Edge */
+            color: #ccc;
+        }
 
-section {
-    margin: 20px;
-}
+        /* Banner specific styles */
+        #banner {
+            position: relative; /* For positioning banner title */
+            height: 450px; /* Adjust height as needed, e.g., 50vh for 50% of viewport height */
+            background-image: url('image_733e38.jpg'); /* <-- REPLACE THIS with your actual banner image URL */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex; /* To help position title if needed, though absolute positioning is used here */
+            align-items: flex-end; /* Aligns children (banner-title) to the bottom */
+        }
 
-h2 {
-    margin-bottom: 10px;
-}
+        #banner-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 2em; /* Larger font size for the title */
+            font-weight: bold;
+            color: #fff; /* White text color */
+        }
 
-h1 {
-    color:rgb(217, 17, 224);
-}
+        /* Ensure sections below banner have some top margin if banner is very tall */
+        #search-section, section {
+            padding: 20px;
+            margin-top: 10px; /* Adjust as needed */
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+    <script type="text/javascript" data-cfasync="false">
+    /*<![CDATA[/* */
+    (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
+    /*]]>/* */
+    </script>
+    <script type='text/javascript' src='//pl26690846.profitableratecpm.com/9b/1b/cb/9b1bcbbec62afce68d1aaa44fb750ff2.js'></script>
+    <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
+</head>
+<body>
+    <header style="background-color: #1C1C1C; /* Dark background for navbar */ padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
+            <h1 style="margin: 0; color: red; font-size: 1.8em;">Movie<span id="title">143</span></h1>
+        </a>
+        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" style="padding: 10px 15px; background-color: #333; border: 1px solid #555; color: white; border-radius: 4px; width: 300px; font-size: 0.9em;" />
+    </header>
 
-h1 #title {
-    color: red
-}
+    <section id="search-section">
+        <h2>Search Results</h2>
+        <div id="search-results"></div>
+    </section>
 
-#search-section {
-    display: none;
-    margin: 20px;
-}
+    <div id="banner">
+        <div id="banner-title">Jurassic World Rebirth</div>
+    </div>
 
-/* Use grid layout for movie lists */
-#movies-list, #tvshows-list, #anime-list, #search-results {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-}
+    <section>
+        <h2>Trending Movies</h2>
+        <div id="movies-list"></div>
+    </section>
 
-/* Adjust image sizes in grid */
-#movies-list img, #tvshows-list img, #anime-list img, #search-results img {
-    height: auto;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
+    <section>
+        <h2>Trending TV Shows</h2>
+        <div id="tvshows-list"></div>
+    </section>
 
-/* Disable zoom effect on hover */
-#movies-list img:hover, #tvshows-list img:hover, #anime-list img:hover, #search-results img:hover {
-    transform: none;
-}
+    <section>
+        <h2>Trending Anime (Japanese)</h2>
+        <div id="anime-list"></div>
+    </section>
 
-/* Modal styles */
-#modal, #search-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+    <div id="modal">
+        <div id="modal-content">
+            <div id="modal-header">
+                <h2 id="modal-title"></h2>
+                <span id="modal-close" onclick="closeModal()">×</span>
+            </div>
+            <div id="modal-body">
+                <img id="modal-image" src="" alt="Poster" />
+                <div id="modal-details">
+                    <div id="modal-rating"></div>
+                    <div id="modal-overview"></div>
+                    <select id="server" onchange="changeServer()">
+                        <option value="vidsrc.cc">vidsrc.cc</option>
+                        <option value="vidsrc.me">vidsrc.me</option>
+                        <option value="player.videasy.net">player.videasy.net</option>
+                    </select>
+                    <iframe id="modal-video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
-#modal-content, #search-modal-content {
-    background: #222;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 900px;
-    max-height: 90vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-#modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#modal-close, #search-close {
-    cursor: pointer;
-    font-size: 1.5em;
-    color: #bbb;
-    font-weight: bold;
-}
-
-#modal-body {
-    display: flex;
-    margin-top: 10px;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-#modal-image {
-    max-width: 200px;
-    border-radius: 5px;
-}
-
-#modal-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-#modal-rating {
-    color: gold;
-    margin: 5px 0;
-    font-size: 1.2em;
-}
-
-#modal-overview {
-    margin-top: 10px;
-    color: #ccc;
-    font-size: 0.9em;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-}
-
-#modal-video {
-    margin-top: 15px;
-    width: 100%;
-    height: 400px;
-    border-radius: 8px;
-    background: black;
-    border: none;
-}
-
-/* Server selection */
-#server {
-    margin-top: 10px;
-    padding: 5px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    width: 200px;
-}
-
-/* Search modal */
-#search-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
-
-/* Search input styling */
-#search-input {
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 8px;
-    border: none;
-    width: 300px;
-    max-width: 100%;
-    background: #222;
-    color: white;
-    outline: none;
-}
-
-#search-results img {
-    height: 150px;
-    width: auto;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.episodes-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+    <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border-top: 1px solid #eee;">
+        <h3 style="margin-bottom: 15px; color: #555;">Advertisements</h3>
+        
+        <div id="container-a1ad8adc20f1f157342279802f8e7966" style="margin-bottom: 20px;"></div>
+        
+        <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: inline-block; text-align: center; padding: 10px 15px; background-color: #f0f0f0; margin: 5px auto; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd; border-radius: 5px;">
+            ✨ Special Offer! Click Here for an Amazing Deal! ✨
+        </a>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>
