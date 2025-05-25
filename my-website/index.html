@@ -11,87 +11,330 @@
     /*]]>/* */
     </script>
     <style>
-        /* Add this basic styling to ensure no default margins/paddings interfere */
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            /* height: 100%; /* May not be needed if body content defines height */
             width: 100%;
-            overflow-x: hidden; /* Prevent horizontal scroll if content is too wide */
+            font-family: Arial, Helvetica, sans-serif; /* Example font */
+            background-color: #141414; /* Dark background for the page */
+            color: #fff; /* Default text color */
+            overflow-x: hidden;
         }
 
-        /* Make the header take up its own space and stay at the top */
         header {
-            position: fixed; /* or sticky */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #101010; /* Dark header background */
+            border-bottom: 1px solid #222;
+            position: fixed; /* Or sticky, if preferred */
             top: 0;
             left: 0;
             width: 100%;
-            background-color: white; /* Or your desired header background */
-            z-index: 1000; /* Ensure it's above other content */
-            box-sizing: border-box; /* Include padding in width calculation */
+            z-index: 1000;
+            box-sizing: border-box;
         }
 
-        /* Style for the banner to be fullscreen */
+        header .logo a {
+            text-decoration: none;
+            color: #e50914; /* Red color for logo, similar to Netflix or target */
+        }
+
+        header .logo h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        header .logo #title {
+            color: #f5f5f1; /* Lighter part of the logo */
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #f5f5f1;
+            font-size: 0.9em;
+        }
+        header nav ul li a:hover {
+            color: #b3b3b3;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: #222; /* Darker search input background */
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 5px 8px;
+            margin-right: 20px; /* Space before nav links */
+        }
+
+        .search-container .search-icon {
+            color: #e50914; /* Red search icon */
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        #search-input {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            font-size: 0.9em;
+        }
+        #search-input::placeholder {
+            color: #888;
+        }
+
         #banner {
             width: 100%;
-            height: 100vh; /* Viewport Height - makes it take the full screen height */
-            background-image: url('YOUR_BACKGROUND_IMAGE_URL_HERE.jpg'); /* Replace with your image */
-            background-size: cover; /* Cover the entire area */
-            background-position: center; /* Center the image */
+            height: 65vh; /* Adjust as needed, not full screen but substantial */
+            background-image: url('https://image.tmdb.org/t/p/original/pathToYourBannerImage.jpg'); /* <<< REPLACE THIS with actual movie still */
+            background-size: cover;
+            background-position: center top; /* Adjust to focus on important part of image */
             background-repeat: no-repeat;
-            display: flex; /* Optional: if you want to center content inside the banner */
-            justify-content: center; /* Optional */
-            align-items: center; /* Optional */
-            padding-top: 70px; /* Adjust this based on your header's height to prevent overlap if header is fixed/sticky */
-            box-sizing: border-box; /* Include padding in height calculation */
+            display: flex;
+            align-items: flex-end; /* Align content to the bottom */
+            padding: 0; /* Reset padding if any */
+            position: relative; /* For pseudo-element overlay */
+            margin-top: 60px; /* Height of the fixed header, adjust if header height changes */
+            box-sizing: border-box;
         }
 
-        #banner-title {
-            color: white; /* Example: Make title visible on a dark background */
-            font-size: 2em; /* Example */
-            text-align: center; /* Example */
+        #banner::before { /* Optional: Dark gradient overlay for better text readability */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.1) 60%, transparent 100%);
+            z-index: 1;
         }
 
-        /* Adjust padding for sections below the banner if header is fixed/sticky */
-        section {
-            padding-top: 20px; /* General padding for sections */
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            padding: 30px 40px; /* Padding for the text content */
+            max-width: 50%; /* Limit width of text block */
         }
 
-        /* Ensure the first section after the banner is visible below the header if the banner doesn't have enough top padding */
-        /* Or ensure the banner itself has enough top padding as shown above */
+        .banner-content h2 { /* Movie Title */
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        .banner-content .meta {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            color: #c0c0c0;
+        }
+        .banner-content .meta span {
+            margin-right: 15px;
+        }
+        .banner-content .description {
+            font-size: 1em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            max-width: 600px; /* Limit description width */
+        }
+        .watch-now-btn {
+            background-color: #e50914; /* Red button */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+        }
+        .watch-now-btn:hover {
+            background-color: #f40612;
+        }
 
+        .trending-bar {
+            background-color: #1c293a; /* Blue-ish color from example */
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+        }
+        .trending-bar h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #fff;
+            margin-right: 30px;
+        }
+        .trending-bar nav a {
+            color: #a9b7c9;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1em;
+        }
+        .trending-bar nav a.active,
+        .trending-bar nav a:hover {
+            color: #fff;
+            text-decoration: underline; /* Or border-bottom */
+        }
+
+        section { /* General styling for content sections below banner/trending-bar */
+            padding: 20px 40px;
+            background-color: #141414; /* Ensure dark background for sections */
+        }
+        section h2 { /* Titles like "Search Results", "Trending Movies" etc. */
+            color: #f5f5f1;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        /* Style for your movie/tv/anime lists - basic */
+        #movies-list, #tvshows-list, #anime-list, #search-results {
+            display: flex; /* Example: use flex for horizontal layout of posters */
+            flex-wrap: wrap; /* Allow wrapping */
+            gap: 15px; /* Space between items */
+        }
+        /* Individual movie item styling would go into your style.css, e.g. for cards */
+        /* .movie-item { background-color: #222; padding: 10px; border-radius: 4px; } */
+
+
+        /* Modal styles should also be reviewed or moved to style.css */
+        #modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        #modal-content {
+            background-color: #181818;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #333;
+            width: 80%;
+            max-width: 800px;
+            color: #fff;
+            border-radius: 5px;
+            position: relative;
+        }
+        #modal-header {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        #modal-title { margin: 0; font-size: 1.8em; }
+        #modal-close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #modal-close:hover, #modal-close:focus { color: #fff; }
+        #modal-body { display: flex; gap: 20px; }
+        #modal-image { max-width: 30%; height: auto; border-radius: 4px;}
+        #modal-details { flex-grow: 1; }
+        #modal-rating, #modal-overview { margin-bottom: 10px; }
+        #server {
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #555;
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+        }
+        #modal-video { width: 100%; height: 350px; border: none; margin-top:10px;}
 
     </style>
 </head>
 <body>
-    <header style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
-            <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
-        </a>
-        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
+    <header>
+        <div class="logo">
+            <a href="javascript:location.reload();">
+                <h1>Movie<span id="title">143</span></h1>
+            </a>
+        </div>
+        <div class="header-right">
+            <div class="search-container">
+                <span class="search-icon">🔍</span> <input type="text" id="search-input" placeholder="Search..." oninput="searchTMDB()" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a href="#">Animations</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <div id="banner">
-        <div id="banner-title">A Minecraft Movie</div> </div>
+        <div class="banner-content">
+            <h2>A Working Man</h2> <div class="meta">
+                <span>IMDb: 6.6</span>
+                <span>2025</span>
+                <span>Movie</span>
+            </div>
+            <p class="description">
+                Levon Cade left behind a decorated military career in the black ops to live a simple
+                life working construction. But when his Bisco's daughter, who is like family to him, is
+                taken by human traffickers,...
+            </p>
+            <button class="watch-now-btn" onclick="alert('Watch Now clicked!');">▶ Watch Now</button>
+        </div>
+    </div>
 
-    <section id="search-section">
-        <h2>Search Results</h2>
+    <div class="trending-bar">
+        <h2>Trending</h2>
+        <nav>
+            <a href="#" class="active">Movies</a>
+            <a href="#">Series</a>
+        </nav>
+    </div>
+
+    <section id="search-section" style="display: none;"> <h2>Search Results</h2>
         <div id="search-results"></div>
     </section>
 
-    <section>
-        <h2>Trending Movies</h2>
-        <div id="movies-list"></div>
+    <section id="trending-movies-section">
+        <div id="movies-list">
+            </div>
     </section>
 
-    <section>
-        <h2>Trending TV Shows</h2>
-        <div id="tvshows-list"></div>
+    <section id="trending-tv-section">
+        <div id="tvshows-list">
+            </div>
     </section>
 
-    <section>
-        <h2>Trending Anime (Japanese)</h2>
-        <div id="anime-list"></div>
+    <section id="trending-anime-section">
+        <div id="anime-list">
+            </div>
     </section>
 
     <div id="modal">
@@ -117,5 +360,25 @@
     </div>
 
     <script src="home.js"></script>
+    <script>
+        // Basic JS to handle modal (if not already in home.js)
+        // Ensure your closeModal function is defined, e.g.:
+        // function closeModal() { document.getElementById('modal').style.display = 'none'; }
+        // function openModal() { document.getElementById('modal').style.display = 'block'; }
+
+        // Example: To make the "Search Results" section visible when search_input has text
+        const searchInput = document.getElementById('search-input');
+        const searchSection = document.getElementById('search-section');
+        if (searchInput && searchSection) {
+            searchInput.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    // Assuming searchTMDB() will populate #search-results
+                    searchSection.style.display = 'block';
+                } else {
+                    searchSection.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
