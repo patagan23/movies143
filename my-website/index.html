@@ -14,11 +14,10 @@
         body, html {
             margin: 0;
             padding: 0;
-            /* height: 100%; /* May not be needed if body content defines height */
             width: 100%;
-            font-family: Arial, Helvetica, sans-serif; /* Example font */
-            background-color: #141414; /* Dark background for the page */
-            color: #fff; /* Default text color */
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0b101c; /* Dark blueish background from new image */
+            color: #fff;
             overflow-x: hidden;
         }
 
@@ -26,10 +25,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            background-color: #101010; /* Dark header background */
+            padding: 15px 40px; /* Increased padding to match example */
+            background-color: #101010;
             border-bottom: 1px solid #222;
-            position: fixed; /* Or sticky, if preferred */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -37,237 +36,140 @@
             box-sizing: border-box;
         }
 
-        header .logo a {
-            text-decoration: none;
-            color: #e50914; /* Red color for logo, similar to Netflix or target */
-        }
-
-        header .logo h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        header .logo #title {
-            color: #f5f5f1; /* Lighter part of the logo */
-        }
-
-        header nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        header nav ul li {
-            margin-left: 20px;
-        }
-
-        header nav ul li a {
-            text-decoration: none;
-            color: #f5f5f1;
-            font-size: 0.9em;
-        }
-        header nav ul li a:hover {
-            color: #b3b3b3;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-container {
-            display: flex;
-            align-items: center;
-            background-color: #222; /* Darker search input background */
-            border: 1px solid #333;
-            border-radius: 4px;
-            padding: 5px 8px;
-            margin-right: 20px; /* Space before nav links */
-        }
-
-        .search-container .search-icon {
-            color: #e50914; /* Red search icon */
-            margin-right: 5px;
-            cursor: pointer;
-        }
-
-        #search-input {
-            background-color: transparent;
-            border: none;
-            color: #fff;
-            outline: none;
-            font-size: 0.9em;
-        }
-        #search-input::placeholder {
-            color: #888;
-        }
+        header .logo a { text-decoration: none; color: #e50914; }
+        header .logo h1 { margin: 0; font-size: 1.8em; }
+        header .logo #title { color: #f5f5f1; }
+        header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        header nav ul li { margin-left: 20px; }
+        header nav ul li a { text-decoration: none; color: #f5f5f1; font-size: 0.9em; }
+        header nav ul li a:hover { color: #b3b3b3; }
+        .header-right { display: flex; align-items: center; }
+        .search-container { display: flex; align-items: center; background-color: #222; border: 1px solid #333; border-radius: 4px; padding: 5px 8px; margin-right: 20px; }
+        .search-container .search-icon { color: #e50914; margin-right: 5px; cursor: pointer; }
+        #search-input { background-color: transparent; border: none; color: #fff; outline: none; font-size: 0.9em; }
+        #search-input::placeholder { color: #888; }
 
         #banner {
             width: 100%;
-            height: 65vh; /* Adjust as needed, not full screen but substantial */
-            background-image: url('https://image.tmdb.org/t/p/original/pathToYourBannerImage.jpg'); /* <<< REPLACE THIS with actual movie still */
+            height: 65vh;
+            background-image: url('https://image.tmdb.org/t/p/original/pathToYourBannerImage.jpg'); /* <<< REPLACE THIS */
             background-size: cover;
-            background-position: center top; /* Adjust to focus on important part of image */
+            background-position: center top;
             background-repeat: no-repeat;
             display: flex;
-            align-items: flex-end; /* Align content to the bottom */
-            padding: 0; /* Reset padding if any */
-            position: relative; /* For pseudo-element overlay */
-            margin-top: 60px; /* Height of the fixed header, adjust if header height changes */
+            align-items: flex-end;
+            padding: 0;
+            position: relative;
+            margin-top: 60px; /* Adjust if header height changes */
             box-sizing: border-box;
         }
+        #banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.1) 60%, transparent 100%); z-index: 1; }
+        .banner-content { position: relative; z-index: 2; color: #fff; padding: 30px 40px; max-width: 50%; }
+        .banner-content h2 { font-size: 2.5em; margin: 0 0 10px 0; font-weight: bold; }
+        .banner-content .meta { font-size: 0.9em; margin-bottom: 15px; color: #c0c0c0; }
+        .banner-content .meta span { margin-right: 15px; }
+        .banner-content .description { font-size: 1em; margin-bottom: 20px; line-height: 1.5; max-width: 600px; }
+        .watch-now-btn { background-color: #e50914; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 1em; border: none; cursor: pointer; }
+        .watch-now-btn:hover { background-color: #f40612; }
 
-        #banner::before { /* Optional: Dark gradient overlay for better text readability */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.1) 60%, transparent 100%);
-            z-index: 1;
-        }
-
-        .banner-content {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            padding: 30px 40px; /* Padding for the text content */
-            max-width: 50%; /* Limit width of text block */
-        }
-
-        .banner-content h2 { /* Movie Title */
-            font-size: 2.5em;
-            margin: 0 0 10px 0;
-            font-weight: bold;
-        }
-        .banner-content .meta {
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            color: #c0c0c0;
-        }
-        .banner-content .meta span {
-            margin-right: 15px;
-        }
-        .banner-content .description {
-            font-size: 1em;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            max-width: 600px; /* Limit description width */
-        }
-        .watch-now-btn {
-            background-color: #e50914; /* Red button */
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            font-size: 1em;
-            border: none;
-            cursor: pointer;
-        }
-        .watch-now-btn:hover {
-            background-color: #f40612;
-        }
-
-        .trending-bar {
-            background-color: #1c293a; /* Blue-ish color from example */
-            padding: 15px 40px;
+        /* Styling for Row Titles (like Trending, Popular) */
+        .content-row-title {
             display: flex;
             align-items: center;
+            padding: 20px 40px 10px 40px; /* Padding around the title area */
         }
-        .trending-bar h2 {
+        .content-row-title h2 {
             margin: 0;
-            font-size: 1.5em;
+            font-size: 1.6em; /* Prominent title */
             color: #fff;
-            margin-right: 30px;
+            margin-right: 20px;
         }
-        .trending-bar nav a {
+        .content-row-title nav a {
             color: #a9b7c9;
             text-decoration: none;
-            margin-right: 20px;
-            font-size: 1em;
+            margin-right: 15px;
+            font-size: 0.9em;
+            padding-bottom: 3px;
         }
-        .trending-bar nav a.active,
-        .trending-bar nav a:hover {
+        .content-row-title nav a.active,
+        .content-row-title nav a:hover {
             color: #fff;
-            text-decoration: underline; /* Or border-bottom */
+            border-bottom: 2px solid #e50914; /* Red underline for active/hover */
+        }
+        
+        /* Sections containing the carousels */
+        section.movie-carousel-section {
+            padding: 0px 40px 30px 40px; /* Padding for the carousel itself */
+            /* background-color: #0b101c; /* Ensured by body */
         }
 
-        section { /* General styling for content sections below banner/trending-bar */
-            padding: 20px 40px;
-            background-color: #141414; /* Ensure dark background for sections */
+        /* Container for horizontally scrolling movie lists */
+        .movie-list-scrollable {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden; /* Hide vertical scrollbar if any */
+            padding-bottom: 15px; /* Space for scrollbar if it appears outside */
+            gap: 12px; /* Space between movie items */
         }
-        section h2 { /* Titles like "Search Results", "Trending Movies" etc. */
-            color: #f5f5f1;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.4em;
+        /* Hide scrollbar for a cleaner look (Webkit browsers) */
+        .movie-list-scrollable::-webkit-scrollbar {
+            height: 8px;
         }
-
-        /* Style for your movie/tv/anime lists - basic */
-        #movies-list, #tvshows-list, #anime-list, #search-results {
-            display: flex; /* Example: use flex for horizontal layout of posters */
-            flex-wrap: wrap; /* Allow wrapping */
-            gap: 15px; /* Space between items */
-        }
-        /* Individual movie item styling would go into your style.css, e.g. for cards */
-        /* .movie-item { background-color: #222; padding: 10px; border-radius: 4px; } */
-
-
-        /* Modal styles should also be reviewed or moved to style.css */
-        #modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
-        }
-        #modal-content {
-            background-color: #181818;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #333;
-            width: 80%;
-            max-width: 800px;
-            color: #fff;
-            border-radius: 5px;
-            position: relative;
-        }
-        #modal-header {
-            display:flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        #modal-title { margin: 0; font-size: 1.8em; }
-        #modal-close {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        #modal-close:hover, #modal-close:focus { color: #fff; }
-        #modal-body { display: flex; gap: 20px; }
-        #modal-image { max-width: 30%; height: auto; border-radius: 4px;}
-        #modal-details { flex-grow: 1; }
-        #modal-rating, #modal-overview { margin-bottom: 10px; }
-        #server {
-            background-color: #333;
-            color: white;
-            padding: 8px;
+        .movie-list-scrollable::-webkit-scrollbar-track {
+            background: #1f2937; /* Or transparent */
             border-radius: 4px;
-            border: 1px solid #555;
-            margin-bottom: 10px;
-            display: block;
-            width: 100%;
         }
+        .movie-list-scrollable::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        .movie-list-scrollable::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+
+
+        /* Styling for individual movie items (posters) */
+        /* Assuming your home.js generates <a><img /></a> per movie */
+        .movie-list-scrollable a {
+            display: block;
+            text-decoration: none;
+        }
+        .movie-list-scrollable img {
+            width: 150px; /* Adjust width as desired */
+            height: auto; /* Maintain aspect ratio */
+            /* Or fixed height: height: 225px; object-fit: cover; */
+            border-radius: 4px; /* Slight rounding of corners */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .movie-list-scrollable img:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+
+        #search-section { /* This section is for search results, may not be a carousel */
+            padding: 20px 40px;
+        }
+        #search-section h2 {
+            color: #f5f5f1; margin-top: 0; margin-bottom: 20px; font-size: 1.4em;
+        }
+        #search-results { /* Style search results as cards or list */
+            display: flex; flex-wrap: wrap; gap: 15px;
+        }
+
+
+        /* Modal styles */
+        #modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7); }
+        #modal-content { background-color: #181818; margin: 5% auto; padding: 20px; border: 1px solid #333; width: 80%; max-width: 800px; color: #fff; border-radius: 5px; position: relative; }
+        #modal-header { display:flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; }
+        #modal-title { margin: 0; font-size: 1.8em; }
+        #modal-close { color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; }
+        #modal-close:hover, #modal-close:focus { color: #fff; }
+        #modal-body { display: flex; gap: 20px; flex-wrap: wrap; /* For responsiveness */ }
+        #modal-image { max-width: 100%; width:200px; /* Fixed width for poster */ height: auto; border-radius: 4px;}
+        #modal-details { flex-grow: 1; min-width: 250px; /* Ensure details don't get too squished */ }
+        #modal-rating, #modal-overview { margin-bottom: 10px; }
+        #server { background-color: #333; color: white; padding: 8px; border-radius: 4px; border: 1px solid #555; margin-bottom: 10px; display: block; width: 100%; }
         #modal-video { width: 100%; height: 350px; border: none; margin-top:10px;}
 
     </style>
@@ -275,13 +177,12 @@
 <body>
     <header>
         <div class="logo">
-            <a href="javascript:location.reload();">
-                <h1>Movie<span id="title">143</span></h1>
-            </a>
+            <a href="javascript:location.reload();"><h1>Movie<span id="title">143</span></h1></a>
         </div>
         <div class="header-right">
             <div class="search-container">
-                <span class="search-icon">🔍</span> <input type="text" id="search-input" placeholder="Search..." oninput="searchTMDB()" />
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Search..." oninput="searchTMDB()" />
             </div>
             <nav>
                 <ul>
@@ -296,89 +197,13 @@
 
     <div id="banner">
         <div class="banner-content">
-            <h2>A Working Man</h2> <div class="meta">
+            <h2>A Working Man</h2>
+            <div class="meta">
                 <span>IMDb: 6.6</span>
                 <span>2025</span>
                 <span>Movie</span>
             </div>
             <p class="description">
-                Levon Cade left behind a decorated military career in the black ops to live a simple
-                life working construction. But when his Bisco's daughter, who is like family to him, is
-                taken by human traffickers,...
+                Levon Cade left behind a decorated military career...
             </p>
-            <button class="watch-now-btn" onclick="alert('Watch Now clicked!');">▶ Watch Now</button>
-        </div>
-    </div>
-
-    <div class="trending-bar">
-        <h2>Trending</h2>
-        <nav>
-            <a href="#" class="active">Movies</a>
-            <a href="#">Series</a>
-        </nav>
-    </div>
-
-    <section id="search-section" style="display: none;"> <h2>Search Results</h2>
-        <div id="search-results"></div>
-    </section>
-
-    <section id="trending-movies-section">
-        <div id="movies-list">
-            </div>
-    </section>
-
-    <section id="trending-tv-section">
-        <div id="tvshows-list">
-            </div>
-    </section>
-
-    <section id="trending-anime-section">
-        <div id="anime-list">
-            </div>
-    </section>
-
-    <div id="modal">
-        <div id="modal-content">
-            <div id="modal-header">
-                <h2 id="modal-title"></h2>
-                <span id="modal-close" onclick="closeModal()">×</span>
-            </div>
-            <div id="modal-body">
-                <img id="modal-image" src="" alt="Poster" />
-                <div id="modal-details">
-                    <div id="modal-rating"></div>
-                    <div id="modal-overview"></div>
-                    <select id="server" onchange="changeServer()">
-                        <option value="vidsrc.cc">vidsrc.cc</option>
-                        <option value="vidsrc.me">vidsrc.me</option>
-                        <option value="player.videasy.net">player.videasy.net</option>
-                    </select>
-                    <iframe id="modal-video" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="home.js"></script>
-    <script>
-        // Basic JS to handle modal (if not already in home.js)
-        // Ensure your closeModal function is defined, e.g.:
-        // function closeModal() { document.getElementById('modal').style.display = 'none'; }
-        // function openModal() { document.getElementById('modal').style.display = 'block'; }
-
-        // Example: To make the "Search Results" section visible when search_input has text
-        const searchInput = document.getElementById('search-input');
-        const searchSection = document.getElementById('search-section');
-        if (searchInput && searchSection) {
-            searchInput.addEventListener('input', function() {
-                if (this.value.trim() !== '') {
-                    // Assuming searchTMDB() will populate #search-results
-                    searchSection.style.display = 'block';
-                } else {
-                    searchSection.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+            <button
