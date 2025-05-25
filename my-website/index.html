@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Movie143</title>
-    <link rel="stylesheet" href="home.css" />
-
-    </head>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" data-cfasync="false">
+        /* PopAds Script */
+        (function(){var j=window,s="ae5131cfb525d450cc9005c28ca524dc",i=[["siteId",130+935*504*253-114023938],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],g=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vdWpxdWVyeS5zdGlja3l0YWJsZWhlYWRlcnMubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvZ1ZESy9ibWR1aS5taW4uanM="],p=-1,b,z,n=function(){clearTimeout(z);p++;if(g[p]&&!(1773316756000<(new Date).getTime()&&1<p)){b=j.document.createElement("script");b.type="text/javascript";b.async=!0;var f=j.document.getElementsByTagName("script")[0];b.src="https://"+atob(g[p]);b.crossOrigin="anonymous";b.onerror=n;b.onload=function(){clearTimeout(z);j[s.slice(0,16)+s.slice(0,16)]||n()};z=setTimeout(n,5E3);f.parentNode.insertBefore(b,f)}};if(!j[s]){try{Object.freeze(j[s]=i)}catch(e){}n()}})();
+        /*]]>/* */
+    </script>
+</head>
 <body>
-    <header>
-        <a href="javascript:location.reload();">
-            <h1>Movie<span id="title">143</span></h1>
-        </a>
+    <header style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
         <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
     </header>
 
@@ -19,6 +21,7 @@
         <h2>Search Results</h2>
         <div id="search-results"></div>
     </section>
+
 
     <div id="banner">
         <div id="banner-title"></div>
@@ -39,35 +42,28 @@
         <div id="anime-list"></div>
     </section>
 
+    <!-- Modal for details and video -->
     <div id="modal">
         <div id="modal-content">
-            <div id="modal-header">
-                <h2 id="modal-title"></h2>
-                <span id="modal-close" onclick="closeModal()">×</span>
-            </div>
-            <div id="modal-body">
-                <img id="modal-image" src="" alt="Poster" />
-                <div id="modal-details">
-                    <div id="modal-rating"></div>
-                    <div id="modal-overview"></div>
-                    <select id="server" onchange="changeServer()">
-                        <option value="vidsrc.cc">vidsrc.cc</option>
-                        <option value="vidsrc.me">vidsrc.me</option>
-                        <option value="player.videasy.net">player.videasy.net</option>
-                    </select>
-                    <iframe id="modal-video" allowfullscreen></iframe>
-                </div>
+        <div id="modal-header">
+            <h2 id="modal-title"></h2>
+            <span id="modal-close" onclick="closeModal()">×</span>
+        </div>
+        <div id="modal-body">
+            <img id="modal-image" src="" alt="Poster" />
+            <div id="modal-details">
+            <div id="modal-rating"></div>
+            <div id="modal-overview"></div>
+            <select id="server" onchange="changeServer()">
+                <option value="vidsrc.cc">vidsrc.cc</option>
+                <option value="vidsrc.me">vidsrc.me</option>
+                <option value="player.videasy.net">player.videasy.net</option>
+            </select>
+            <iframe id="modal-video" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border-top: 1px solid #eee;">
-        <h3 style="margin-bottom: 15px; color: #555;">Advertisements</h3>
-        
-        <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: inline-block; text-align: center; padding: 10px 15px; background-color: #f0f0f0; margin: 5px auto; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd; border-radius: 5px;">
-            ✨ Special Offer! Click Here for an Amazing Deal! ✨
-        </a>
-    </div>
     <script src="home.js"></script>
 </body>
 </html>
