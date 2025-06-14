@@ -1,133 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<link rel="stylesheet" href="/smui.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css2?family=Material+Icons&display=swap" rel="stylesheet" />
-	<meta charset="utf-8" />
-	<link rel="icon" href="./favicon.png" />
-	<meta name="color-scheme" content="dark" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<script>
-		var viewport = document.querySelector('meta[name=viewport]');
-		viewport.setAttribute('content', viewport.content + ', height=' + window.innerHeight);
-	</script>
-	<meta name="description" content="Stream movies and TV series ad-free on Movie143." />
-	<link href="./_app/immutable/assets/0.GTen-0yw.css" rel="stylesheet">
-	<link href="./_app/immutable/assets/2.834gO8Bo.css" rel="stylesheet">
-	<title>Movie143</title>
-	<style data-svelte-h="svelte-1gs9og0">
-		{@html styles}
-	</style>
-	</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Movie143</title>
+    <link rel="stylesheet" href="home.css" />
+    <script type="text/javascript" data-cfasync="false">
+    /*<![CDATA[/* */
+    (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
+    /*]]>/* */
+    </script>
+    <script type='text/javascript' src='//pl26690846.profitableratecpm.com/9b/1b/cb/9b1bcbbec62afce68d1aaa44fb750ff2.js'></script>
+    <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
+</head>
+<body>
+    <header style="padding: 5px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
+            <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
+        </a>
+        <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
+    </header>
 
-<body data-sveltekit-preload-data="hover">
-	<div style="display: contents">
-		<div class="appbar-container svelte-55n503">
-			<header class="mdc-top-app-bar mdc-top-app-bar--fixed smui-top-app-bar--color-secondary" style="">
-				<div class="mdc-top-app-bar__row">
-					<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-						<a href="/" style="text-decoration: none; color: inherit;">
-							<span class="appbar-title mdc-top-app-bar__title">
-								<h1 style="margin:0; font-family: 'Lexend Deca', sans-serif; font-size: 1.5em;">Movie<span id="title" style="color: #cccccc;">143</span></h1>
-							</span>
-						</a>
-					</section>
-					<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-						<div>
-							<label class="search-input mdc-text-field mdc-text-field--outlined mdc-text-field--no-label mdc-text-field--with-leading-icon" style="">
-								<div class="mdc-notched-outline mdc-notched-outline--no-label">
-									<div class="mdc-notched-outline__leading"></div>
-									<div class="mdc-notched-outline__trailing"></div>
-								</div>
-								<i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" aria-hidden="true" tabindex="-1" slot="leadingIcon">search</i>
-								<input class="mdc-text-field__input" type="text" id="search-input" placeholder="Search..." oninput="searchTMDB()">
-							</label>
-						</div>
-						<button class="appbar-button desktop-icon mdc-button mdc-top-app-bar__action-item" style="">
-							<div class="mdc-button__ripple"></div>
-							<i class="material-icons mdc-button__icon" aria-hidden="true">home</i>
-							<span class="mdc-button__label">Home</span>
-						</button>
-						<button class="appbar-button desktop-icon mdc-button mdc-top-app-bar__action-item" style="">
-							<div class="mdc-button__ripple"></div>
-							<i class="material-icons mdc-button__icon" aria-hidden="true">bookmark</i>
-							<span class="mdc-button__label">Bookmarks</span>
-						</button>
-						<button class="material-icons mdc-icon-button mdc-icon-button--display-flex mdc-top-app-bar__action-item" style="" aria-label="Info">
-							<div class="mdc-icon-button__ripple"></div> info
-						</button>
-					</section>
-				</div>
-			</header>
-			<main>
-				<div id="banner">
-					<div id="banner-title"></div>
-				</div>
-				<section id="search-section">
-					<h2>Search Results</h2>
-					<div id="search-results"></div>
-				</section>
-				<section>
-					<h2>Trending Movies</h2>
-					<div id="movies-list"></div>
-				</section>
-				<section>
-					<h2>Trending TV Shows</h2>
-					<div id="tvshows-list"></div>
-				</section>
-				<section>
-					<h2>Trending Anime (Japanese)</h2>
-					<div id="anime-list"></div>
-				</section>
-			</main>
-		</div>
+    <section id="search-section">
+        <h2>Search Results</h2>
+        <div id="search-results"></div>
+    </section>
 
-		<div id="modal" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-overview">
-			<div class="mdc-dialog__container">
-				<div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" style="background-color: #1f1f1f;">
-					<div id="modal-content" class="mdc-dialog__content">
-						<div id="modal-header">
-							<h2 id="modal-title" class="mdc-dialog__title"></h2>
-							<span id="modal-close" class="material-icons" style="cursor:pointer;" onclick="closeModal()">close</span>
-						</div>
-						<div id="modal-body">
-							<img id="modal-image" src="" alt="Poster" />
-							<div id="modal-details">
-								<div id="modal-rating"></div>
-								<div id="modal-overview"></div>
-								<select id="server" onchange="changeServer()">
-									<option value="vidsrc.cc">vidsrc.cc</option>
-									<option value="vidsrc.me">vidsrc.me</option>
-									<option value="player.videasy.net">player.videasy.net</option>
-								</select>
-								<iframe id="modal-video" allowfullscreen></iframe>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="mdc-dialog__scrim"></div>
-		</div>
+    <div id="banner">
+        <div id="banner-title"></div>
+    </div>
 
-		<div class="loader svelte-xcfgit">
-			<div class="mdc-circular-progress mdc-circular-progress--indeterminate" role="progressbar" aria-valuemin="0" aria-valuemax="1" style="height: 48px; width: 48px;">
-				<div class="mdc-circular-progress__determinate-container">
-					<svg class="mdc-circular-progress__determinate-circle-graphic" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-						<circle class="mdc-circular-progress__determinate-track" cx="24" cy="24" r="18" stroke-width="4"></circle>
-						<circle class="mdc-circular-progress__determinate-circle" cx="24" cy="24" r="18" stroke-dasharray="113.097" stroke-dashoffset="113.097" stroke-width="4"></circle>
-					</svg>
-				</div>
-				<div class="mdc-circular-progress__indeterminate-container">
-					<div class="mdc-circular-progress__spinner-layer">
-						<div class="mdc-circular-progress__circle-clipper mdc-circular-progress__circle-left" data-svelte-h="svelte-1d4f91x">
-							<svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="24" cy="24" r="18" stroke-dasharray="113.097" stroke-dashoffset="56.549" stroke-width="4"></circle>
-							</svg>
-						</div>
-						<div class="mdc-circular-progress__gap-patch" data-svelte-h="svelte-qvm4qv">
-							<svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="24" cy="24"
+    <section>
+        <h2>Trending Movies</h2>
+        <div id="movies-list"></div>
+    </section>
+
+    <section>
+        <h2>Trending TV Shows</h2>
+        <div id="tvshows-list"></div>
+    </section>
+
+    <section>
+        <h2>Trending Anime (Japanese)</h2>
+        <div id="anime-list"></div>
+    </section>
+
+    <div id="modal">
+        <div id="modal-content">
+            <div id="modal-header">
+                <h2 id="modal-title"></h2>
+                <span id="modal-close" onclick="closeModal()">×</span>
+            </div>
+            <div id="modal-body">
+                <img id="modal-image" src="" alt="Poster" />
+                <div id="modal-details">
+                    <div id="modal-rating"></div>
+                    <div id="modal-overview"></div>
+                    <select id="server" onchange="changeServer()">
+                        <option value="vidsrc.cc">vidsrc.cc</option>
+                        <option value="vidsrc.me">vidsrc.me</option>
+                        <option value="player.videasy.net">player.videasy.net</option>
+                    </select>
+                    <iframe id="modal-video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border-top: 1px solid #eee;">
+        <h3 style="margin-bottom: 15px; color: #555;">Advertisements</h3>
+        
+        <div id="container-a1ad8adc20f1f157342279802f8e7966" style="margin-bottom: 20px;"></div>
+        
+        <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: inline-block; text-align: center; padding: 10px 15px; background-color: #f0f0f0; margin: 5px auto; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd; border-radius: 5px;">
+            ✨ Special Offer! Click Here for an Amazing Deal! ✨
+        </a>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>
