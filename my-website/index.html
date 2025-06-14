@@ -5,45 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Movie143</title>
     <link rel="stylesheet" href="home.css" />
+
     <script type="text/javascript" data-cfasync="false">
     /*<![CDATA[/* */
-    (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",424-116+743-311+5199172],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
+    (function(){var e=window,s="ae5131cfb525d450cc9005c28ca524dc",k=[["siteId",5199740],["minBid",0],["popundersPerIP","0:1"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],n=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vY2FqYXgubWluLmNzcw==","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvQ0IvZmpxdWVyeS5qZWRpdGFibGUubWluLmpz"],f=-1,d,j,i=function(){clearTimeout(j);f++;if(n[f]&&!(1773584945000<(new Date).getTime()&&1<f)){d=e.document.createElement("script");d.type="text/javascript";d.async=!0;var v=e.document.getElementsByTagName("script")[0];d.src="https://"+atob(n[f]);d.crossOrigin="anonymous";d.onerror=i;d.onload=function(){clearTimeout(j);e[s.slice(0,16)+s.slice(0,16)]||i()};j=setTimeout(i,5E3);v.parentNode.insertBefore(d,v)}};if(!e[s]){try{Object.freeze(e[s]=k)}catch(e){}i()}})();
     /*]]>/* */
     </script>
     <script type='text/javascript' src='//pl26690846.profitableratecpm.com/9b/1b/cb/9b1bcbbec62afce68d1aaa44fb750ff2.js'></script>
     <script async="async" data-cfasync="false" src="//pl26690868.profitableratecpm.com/a1ad8adc20f1f157342279802f8e7966/invoke.js"></script>
 </head>
 <body>
-    <header style="padding: 5px; display: flex; justify-content: space-between; align-items: center;">
+    <header style="padding: 5px 50px; display: flex; justify-content: space-between; align-items: center;">
         <a href="javascript:location.reload();" style="text-decoration: none; color: inherit;">
             <h1 style="margin: 0;">Movie<span id="title">143</span></h1>
         </a>
         <input type="text" id="search-input" placeholder="Search movies, TV shows, anime..." oninput="searchTMDB()" />
     </header>
 
-    <section id="search-section">
+    <section id="search-section" class="movie-row" style="display: none;">
         <h2>Search Results</h2>
-        <div id="search-results"></div>
+        <div id="search-results" class="movies-container"></div>
     </section>
 
     <div id="banner">
         <div id="banner-title"></div>
     </div>
 
-    <section>
-        <h2>Trending Movies</h2>
-        <div id="movies-list"></div>
+    <section class="movie-row">
+        <h2>Trending Now</h2>
+        <div class="movies-container" id="movies-list">
+            <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/8GvKx1kMdrSojG2I4b5B6d52p8.jpg" alt="The Amateur">
+                <p class="movie-title">The Amateur</p>
+            </div>
+            <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/31Wfy3j0qs9I9msdD1cK6tGzD9.jpg" alt="Deep Cover">
+                <p class="movie-title">Deep Cover</p>
+            </div>
+            <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/qXz2gTwcZ00dJhsI1xplH1o0bM.jpg" alt="Predator: Killer of Killers">
+                <p class="movie-title">Predator: Killer of Killers</p>
+            </div>
+            <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/2Lhcg3gIqQ4H2aFe5jHk4FhzGeM.jpg" alt="The Accountant 2">
+                <p class="movie-title">The Accountant 2</p>
+            </div>
+        </div>
     </section>
 
-    <section>
+    <section class="movie-row">
+        <h2>Now Playing</h2>
+        <div class="movies-container" id="now-playing-list">
+            <div class="movie-item">
+                 <img src="https://image.tmdb.org/t/p/w500/qXz2gTwcZ00dJhsI1xplH1o0bM.jpg" alt="Predator: Killer of Killers">
+                <p class="movie-title">Predator: Killer of Killers</p>
+            </div>
+             <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/9S3S3Oa4m3zItL1V7Q9noTjYQcI.jpg" alt="How to Train Your Dragon">
+                <p class="movie-title">How to Train Your Dragon</p>
+            </div>
+             <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/vYf9cebW5t2gQ4i3e4i27wz2cz.jpg" alt="Until Dawn">
+                <p class="movie-title">Until Dawn</p>
+            </div>
+             <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/gC3tW9a45RGOzzSh62wSA6I802p.jpg" alt="Ballerina">
+                <p class="movie-title">Ballerina</p>
+            </div>
+             <div class="movie-item">
+                <img src="https://image.tmdb.org/t/p/w500/unv9wki1N3iI8OQl20t1b2A3T3x.jpg" alt="Lilo & Stitch">
+                <p class="movie-title">Lilo & Stitch</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="movie-row">
         <h2>Trending TV Shows</h2>
-        <div id="tvshows-list"></div>
+        <div id="tvshows-list" class="movies-container"></div>
     </section>
 
-    <section>
+    <section class="movie-row">
         <h2>Trending Anime (Japanese)</h2>
-        <div id="anime-list"></div>
+        <div id="anime-list" class="movies-container"></div>
     </section>
+
 
     <div id="modal">
         <div id="modal-content">
@@ -69,9 +114,7 @@
 
     <div id="bottom-ads-container" style="padding: 20px 10px; margin-top: 30px; text-align: center; border-top: 1px solid #eee;">
         <h3 style="margin-bottom: 15px; color: #555;">Advertisements</h3>
-        
         <div id="container-a1ad8adc20f1f157342279802f8e7966" style="margin-bottom: 20px;"></div>
-        
         <a href="https://www.profitableratecpm.com/rc4v0d5h0?key=7ba33d5a71cabf8471499b141fbf9557" target="_blank" rel="noopener noreferrer sponsored" style="display: inline-block; text-align: center; padding: 10px 15px; background-color: #f0f0f0; margin: 5px auto; text-decoration: none; color: #333; font-weight: bold; border: 1px solid #ddd; border-radius: 5px;">
             ✨ Special Offer! Click Here for an Amazing Deal! ✨
         </a>
